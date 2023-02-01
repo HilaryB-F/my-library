@@ -3,9 +3,14 @@
 .header {
   display: flex;
   flex-direction: row;
+
   &__title {
     color: $brown;
+    font-size: 5.6rem;
+    font-weight: 700;
     margin-left: 2rem;
+    margin-bottom:0.5rem;
+    margin-top:2.5rem;
   }
 
   &__container {
@@ -15,7 +20,7 @@
     background-color: $olive;
     border: 2px solid $darkGreen;
     min-height: 10vh;
-    min-width: 385px;
+    min-width: 504px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   }
   &__nav {
@@ -41,7 +46,7 @@
     &--menu {
       height: 8vh;
       margin-top: -1rem;
-      margin-left:0.5rem;
+      margin-left: 0.5rem;
     }
   }
 }
