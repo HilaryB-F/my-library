@@ -1,6 +1,6 @@
 import "./bookshelf.scss";
 
-export default function bookshelf() {
+export default function Bookshelf() {
   return (
     <main className="main__container">
       <section className="main__shelf"></section>
