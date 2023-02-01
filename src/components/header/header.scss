@@ -1,0 +1,47 @@
+@use "../../styles/partials/variables" as *;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  &__title {
+    color: $brown;
+    margin-left: 2rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $olive;
+    border: 2px solid $darkGreen;
+    min-height: 10vh;
+    min-width: 385px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  &__nav {
+    display: flex;
+    align-items: start;
+
+    &--search {
+      color: $brown;
+      background-color: $lightOlive;
+      border: none;
+      border-radius: 40px;
+      padding: 0.7rem;
+      background-image: url("../../assets/icons/search.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 2% center;
+      width: 13rem;
+      height: 3rem;
+      padding-left: 3rem;
+      margin-top: 0.5rem;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    }
+    &--menu {
+      height: 8vh;
+      margin-top: -1rem;
+      margin-left:0.5rem;
+    }
+  }
+}

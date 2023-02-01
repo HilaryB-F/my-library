@@ -1,0 +1,19 @@
+@use "./variables" as *;
+@use "./typography" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  background-color: $green;
+}

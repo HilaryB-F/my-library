@@ -1,0 +1,39 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as * ;
+
+.login{
+    &__container{
+        display:flex;
+        flex-direction: row;
+        background-color: $lightGreen;
+        border-radius:10px;
+        border:1px solid $darkGreen;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        width:90%;
+        padding:2rem;
+        min-height:30vh;
+        min-width:350px;
+        margin:auto;
+        margin-top:20%;
+
+    }
+    &__img{
+         height:25vh;
+         padding:0;
+    }
+    &__welcome{
+        font-weight: 400;
+        text-align: center;
+        min-width:40%;
+    }
+    &__link{
+        text-decoration: none;
+        color:black;
+        background-color: $green;
+        padding-left:3rem;
+        padding-right:3rem;
+        padding-top:1rem;
+        padding-bottom:1rem;
+        border-radius: 50px;
+    }
+}
