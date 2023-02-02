@@ -47,7 +47,31 @@
     &--menu {
       height: 8vh;
       margin-top: -1rem;
-      margin-left: 0.5rem;
+
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
+}
+.menu{
+  &__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__dropdown.active{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: (500ms) ease;
+  }
+
+&__dropdown.inactive{
+  opacity: 0;
+    visibility: hidden;
+    transform: translateY(-2rem);
+    transition: (500ms) ease;
+}
 }

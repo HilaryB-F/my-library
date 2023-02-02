@@ -1,31 +1,24 @@
 import "./shelf.scss";
+import Book from "../book/Book";
 
 export default function shelf() {
   return (
     <div>
       <section className="main__shelf">
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
-        <div className="main__slot"></div>
+        <Book />
+        <Book />
+        <Book />
+        <Book />
+        <Book />
+        <Book />
+        <Book />
+        <Book />
+        <Book />
+        <Book />
+        <Book />
+        <Book />
+        <Book />
+
       </section>
     </div>
   );
