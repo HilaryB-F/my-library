@@ -1,14 +1,15 @@
 import "./bookshelf.scss";
+import Shelf from "../shelf/shelf";
 
 export default function Bookshelf() {
   return (
     <main className="main__container">
-      <section className="main__shelf"></section>
-      <section className="main__shelf"></section>
-      <section className="main__shelf"></section>
-      <section className="main__shelf"></section>
-      <section className="main__shelf"></section>
-      <section className="main__shelf"></section>
+      <Shelf />
+      <Shelf />
+      <Shelf />
+      <Shelf />
+      <Shelf />
+      <Shelf />
     </main>
   );
 }

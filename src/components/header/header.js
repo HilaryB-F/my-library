@@ -1,22 +1,20 @@
 import "./header.scss";
+import { useState, useEffect, useRef } from "react";
 import Menu from "../../assets/icons/menu.png";
-import { useState } from "react";
+import Dropdown from "../menu/menu";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState(false);
+  let menuRef = useRef();
 
-  const togglePopup = () => {
-    setOpen(!open);
-  }
-  
-  const menuPop = () => {
-    return (
-      <main>
-        <h2>Theme</h2>
-        <h2>View</h2>
-      </main>
-    );
-  };
+  useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+  });
 
   return (
     <header className="header__container">
@@ -26,8 +24,20 @@ export default function Header() {
           className="header__nav--search"
           type="search"
           placeholder="Search"
-        ></input>
-        <img className="header__nav--menu" src={Menu} alt="Menu" onClick={togglePopup} />
+        ></input>{" "}
+        <section className="menu__container" ref={menuRef}>
+          <div
+            className="menu__trigger"
+            onClick={() => {
+              setMenu(!menu);
+            }}
+          >
+            <img className="header__nav--menu" src={Menu} alt="Menu" />
+          </div>
+          <div className={`menu__dropdown ${menu ? "active" : "inactive"}`}>
+            <Dropdown />
+          </div>
+        </section>
       </nav>
     </header>
   );
