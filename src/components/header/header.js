@@ -1,22 +1,8 @@
 import "./header.scss";
 import Menu from "../../assets/icons/menu.png";
-import { useState } from "react";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
 
-  const togglePopup = () => {
-    setOpen(!open);
-  }
-  
-  const menuPop = () => {
-    return (
-      <main>
-        <h2>Theme</h2>
-        <h2>View</h2>
-      </main>
-    );
-  };
 
   return (
     <header className="header__container">
@@ -27,7 +13,7 @@ export default function Header() {
           type="search"
           placeholder="Search"
         ></input>
-        <img className="header__nav--menu" src={Menu} alt="Menu" onClick={togglePopup} />
+        <img className="header__nav--menu" src={Menu} alt="Menu" />
       </nav>
     </header>
   );
