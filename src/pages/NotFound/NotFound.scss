@@ -1,0 +1,41 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.loading {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $lightGreen;
+    border-radius: 10px;
+    border: 1px solid $darkGreen;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    padding: 2rem;
+    min-height: 30vh;
+    min-width: 350px;
+    margin: auto;
+    margin-top: 20%;
+  }
+  &__welcome {
+    color: $brown;
+    font-weight: 400;
+    text-align: center;
+    align-self: center;
+    min-width: 40%;
+  }
+  &__title {
+    font-size: 3.6rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  &__text{
+    font-weight: 600;;
+  }
+  &__img {
+    height: 25vh;
+    padding: 0;
+
+ 
+  }
+}

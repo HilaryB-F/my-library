@@ -1,9 +1,11 @@
 import "./library.scss";
-import Header from "../header/header";
-import Bookshelf from "../bookshelf/bookshelf";
+import Header from "../../components/header/header";
+import Bookshelf from "../../components/bookshelf/bookshelf";
+
 
 
 export default function Library() {
+
   return (
     <>
     <Header/>
