@@ -1,0 +1,94 @@
+@use "../../styles/partials/variables" as *;
+
+.book-modal {
+  &__background {
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: $green;
+    border-radius: 10px;
+    border: 2px solid $darkGreen;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    height: 45vh;
+    padding: 1rem;
+    margin-top: 10rem;
+  }
+  &__header {
+    font-size: 3.3rem;
+    font-weight: 700;
+    text-align: center;
+    width: 90%;
+    margin: 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size:1.8rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    border: 2px solid $darkGreen;
+    border-bottom: none;;
+    align-items: center;
+    padding-left:1rem;
+
+  }
+  &__input {
+    font-size:1.8rem;
+
+    border: none;
+    background-color: $lightOlive;
+    border-left: 2px solid $darkGreen;
+    margin-left: 1rem;
+    padding: 2rem;
+    height: 3rem;
+    padding-left:3.2rem;
+    padding-right: 0;
+
+    &-search{
+        background-image: url("../../assets/icons/search.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position:0% center;
+        
+    }
+  }
+&__add{
+    color: $brown;
+    border:none;
+    background-color: $green;
+    font-weight: 400;
+    font-size: 2.4rem;
+    margin-top: 2rem;
+    margin-right:1rem;
+}
+  &__close {
+    font-weight: 600;
+    font-size: 2.4rem;
+    margin-top: 2rem;
+    color: $brown;
+    align-self: center;
+    text-decoration: none;
+    padding: 1rem;
+  }
+}
+
+.buttons{
+    padding-top:2rem;
+    display: flex;
+    justify-content: space-between;
+    width:90%;
+    align-self: center;
+}
