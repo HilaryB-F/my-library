@@ -8,7 +8,7 @@ export default function Rating() {
   const [hover, setHover] = useState(null);
 
   return (
-    <div>
+    <div className ="rating__container">
       {[...Array(5)].map((heart, i) => {
         const ratingValue = i + 1;
         return (
@@ -22,7 +22,7 @@ export default function Rating() {
             />
             <FaHeart
               className="heart"
-              size={25}
+              size={40}
               color={ratingValue <= (hover || rating) ? "#F84B4B" : "#4B1F19"}
               onMouseEnter={() => setHover(ratingValue)}
               onMouseLeave={() => setHover(null)}

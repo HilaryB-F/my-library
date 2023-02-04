@@ -41,8 +41,15 @@ export default function BookModal({ closeModal, setAdd }) {
         </label>
         <label className="book-modal__label">
             Rating
-          <Rating/>
+          <Rating className = "book-modal__rating"/>
           </label>
+          <label className="book-modal__label book-modal__label-finished">
+          Finished
+          <input
+            className="book-modal__input book-modal__input-finished"
+            type="date"
+          ></input>
+        </label>
         <section className="buttons">
           <Link
             className="book-modal__close"

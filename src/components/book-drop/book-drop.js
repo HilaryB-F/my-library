@@ -1,9 +1,13 @@
 import "./book-drop.scss";
 import { useState } from "react";
 import BookModal from "../BookModal/BookModal";
+import PlantModal from "../PlantModal/PlantModal";
+import DecorModal from "../DecorModal/DecorModal";
 
-export default function Bookdrop({setAdd}) {
+export default function Bookdrop({ setAdd }) {
   const [openModal, setOpenModal] = useState(false);
+  const [openPlantModal, setOpenPlantModal] = useState(false);
+  const [openDecorModal, setOpenDecorModal] = useState(false);
   return (
     <section className="drop__container">
       <h2
@@ -15,12 +19,56 @@ export default function Bookdrop({setAdd}) {
         Book
       </h2>
       <hr></hr>
-      <h2 className="drop__text">Plant</h2>
+      <h2
+        className="drop__text"
+        onClick={() => {
+          setOpenPlantModal(true);
+        }}
+      >
+        Plant
+      </h2>
       <hr></hr>
-      <h2 className="drop__text">Decor</h2>
-      <div className={`book-modal__dropdown ${openModal ? "active" : "inactive"}`}>
-      {openModal && <BookModal closeModal={setOpenModal} openModal={openModal} setAdd={setAdd}/>}
-     </div>
+      <h2
+        className="drop__text"
+        onClick={() => {
+          setOpenDecorModal(true);
+        }}
+      >
+        Decor
+      </h2>
+      <div
+        className={`book-modal__dropdown ${openModal ? "active" : "inactive"}`}
+      >
+        {openModal && (
+          <BookModal
+            closeModal={setOpenModal}
+            openModal={openModal}
+            setAdd={setAdd}
+          />
+        )}
+      </div>
+      <div
+        className={`plant-modal__dropdown ${openPlantModal ? "active" : "inactive"}`}
+      >
+        {openPlantModal && (
+          <PlantModal
+            closeModal={setOpenPlantModal}
+            openModal={openPlantModal}
+            setAdd={setAdd}
+          />
+        )}
+      </div>
+      <div
+        className={`decor-modal__dropdown ${openDecorModal ? "active" : "inactive"}`}
+      >
+        {openDecorModal && (
+          <DecorModal
+            closeModal={setOpenDecorModal}
+            openModal={openDecorModal}
+            setAdd={setAdd}
+          />
+        )}
+      </div>
     </section>
   );
 }

@@ -10,6 +10,8 @@ export default function Menu() {
       <h2 className="dropdown__text">Theme</h2>
       <hr></hr>
       <h2 className="dropdown__text">View</h2>
+      <hr></hr>
+      <Link className="dropdown__text" to="/library">Home</Link>
     </section>
   );
 }

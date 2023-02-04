@@ -1,0 +1,18 @@
+@use "../../styles/partials/variables" as *;
+
+.edit{
+    &__container{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color:$darkGreen;
+        height:90vh;
+        min-width: 520px;
+        margin:1rem;
+        box-shadow: 4px 4px 5px rgba(194, 223, 194, 1);
+        border-radius: 5px;
+        border:2px solid $darkGreen;
+
+    }
+
+}
