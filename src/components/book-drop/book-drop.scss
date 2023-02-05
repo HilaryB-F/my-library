@@ -43,7 +43,6 @@ hr {
     position: absolute;
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
     transition: (500ms) ease;
   }
 
@@ -51,7 +50,6 @@ hr {
     position: absolute;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-3rem);
     transition: (500ms) ease;
   }
 }

@@ -28,7 +28,7 @@ export default function AddBook() {
       >
         <div className="main__slot"></div>
       </div>
-      <div className={`book__dropdown ${add ? "active" : "inactive"}`}>
+      <div className={`add-book__down ${add ? "active" : "inactive"}`}>
         <Bookdrop setAdd={setAdd} />
       </div>
     </section>

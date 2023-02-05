@@ -14,4 +14,21 @@
   }
 }
 
+.clicked{
 
+  &__book.active{
+    position:absolute;
+    margin-left:1.5rem;
+    opacity: 1;
+    visibility: visible;
+    transition: (500ms) ease;
+  }
+
+  &__book.inactive{
+    position:absolute;
+    margin-left:1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: (500ms) ease;
+  }
+}

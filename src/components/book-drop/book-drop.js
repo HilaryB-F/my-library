@@ -14,6 +14,8 @@ export default function Bookdrop({ setAdd }) {
         className="drop__text"
         onClick={() => {
           setOpenModal(true);
+          setOpenPlantModal(false)
+          setOpenDecorModal(false)
         }}
       >
         Book
@@ -23,6 +25,8 @@ export default function Bookdrop({ setAdd }) {
         className="drop__text"
         onClick={() => {
           setOpenPlantModal(true);
+          setOpenModal(false)
+          setOpenDecorModal(false)
         }}
       >
         Plant
@@ -32,6 +36,8 @@ export default function Bookdrop({ setAdd }) {
         className="drop__text"
         onClick={() => {
           setOpenDecorModal(true);
+          setOpenPlantModal(false)
+          setOpenModal(false)
         }}
       >
         Decor

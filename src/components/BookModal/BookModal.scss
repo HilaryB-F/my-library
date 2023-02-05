@@ -4,20 +4,8 @@
     height: 100vh;
     width: 100vw;
 
-  &__background {
-    background-color: rgba(0, 0, 0, 0.1);
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    margin:auto;
-
-
- 
-  }
   &__container {
-    margin:auto;
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -25,9 +13,11 @@
     border-radius: 10px;
     border: 2px solid $darkGreen;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    // height: 45vh;
+    width:34rem;
+    min-width:340px;
+    min-height:400px;
     padding: 1rem;
-   
+    margin:auto;
   }
   &__header {
     font-size: 3.3rem;

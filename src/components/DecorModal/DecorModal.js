@@ -1,10 +1,13 @@
-import "./DecorModal.scss";
+import './DecorModal.scss'
+
 import React from 'react'
 
-export default function DecorModal() {
+export default function PlantModal({ closePlantModal, setAdd }) {
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <main className="decor-modal__background">
+      <section className='decor-modal__container'>
+        <header className="decor-modal__header">Decor</header>
+        </section>
+    </main>
   )
 }
