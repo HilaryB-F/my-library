@@ -1,24 +1,12 @@
 import "./shelf.scss";
 import Book from "../book/Book";
 
-export default function shelf() {
+export default function Shelf({book, selectedBook, bookId}) {
+
   return (
     <div>
       <section className="main__shelf">
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-
+        <Book  book={book} selectedBook={selectedBook} bookId={bookId}/>
       </section>
     </div>
   );
