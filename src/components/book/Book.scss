@@ -2,13 +2,22 @@
 
 .main {
   &__slot {
-    width: 2rem;
+    width: 3rem;
     height: 12.5vh;
     margin: 0.2rem;
     border: 2px solid rgb(0, 0, 0, 0.1);
+    writing-mode: tb-rl;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    color: $yellow;
+    background-color: $lightBrown;
+    border:2px solid $brown;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
 
     &:hover {
-      border: 2px solid $darkGreen;
+      border: 2px solid $yellow;
       transition: (200ms);
     }
   }

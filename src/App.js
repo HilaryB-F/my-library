@@ -6,9 +6,6 @@ import NotFound from "./pages/NotFound/NotFound";
 import AddingBook from "./pages/AddingBook/AddingBook";
 
 
-
-
-
 function App() {
   return (
     <Router>
