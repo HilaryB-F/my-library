@@ -20,11 +20,6 @@ export default function shelf() {
         <AddBook />
         <AddBook />
         <AddBook />
-        <AddBook />
-        <AddBook />
-        <AddBook />
-        <AddBook />
-        <AddBook />
       </section>
     </div>
   );

@@ -2,6 +2,7 @@
 
 .main {
   &__slot {
+    display:flex;
     width: 3rem;
     height: 12.5vh;
     margin: 0.2rem;
@@ -9,6 +10,8 @@
     writing-mode: tb-rl;
     font-size: 10px;
     font-weight: 600;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: $yellow;
     background-color: $lightBrown;

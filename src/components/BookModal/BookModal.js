@@ -1,8 +1,10 @@
 import "./BookModal.scss";
-// import axios from "axios";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Rating from "../rating/Rating";
 import { useRef } from "react";
+import { v4 } from "uuid";
+
 
 
 export default function BookModal({ closeModal, setAdd }) {
@@ -12,17 +14,17 @@ export default function BookModal({ closeModal, setAdd }) {
     e.preventDefault();
     console.log("hello")
 
-    // axios.post (url,{
-      // id:v4(),
-    //   title:formRef.current.title.value,
-    //   author:formRef.current.author.value,
-    //   series:formRef.current.series.value,
-    //   rating:formRef.current.rating.value,
-    //   finished:formRef.current.finished.value,
-    // })
-    // .catch((error) =>{
-    //   console.log(error, "Error");
-    // })
+    axios.post ("http://localhost:8080/library",{
+      id:v4(),
+      title:formRef.current.title.value,
+      author:formRef.current.author.value,
+      series:formRef.current.series.value,
+      rating:formRef.current.rating.value,
+      finished:formRef.current.finished.value,
+    })
+    .catch((error) =>{
+      console.log(error, "Error");
+    })
   };
 
   return (
@@ -96,7 +98,7 @@ export default function BookModal({ closeModal, setAdd }) {
               className="book-modal__add"
               type="submit"
               onClick={() => {
-                closeModal(false);
+                // closeModal(false);
                 setAdd(false);
               }}
             >
