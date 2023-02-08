@@ -2,7 +2,6 @@ import "./Rating.scss";
 import { FaHeart } from "react-icons/fa";
 import React from "react";
 import { useState } from "react";
-import {v4} from "uuid";
 
 
 export default function Rating() {
@@ -16,14 +15,13 @@ export default function Rating() {
       {[...Array(5)].map((heart, i) => {
         const ratingValue = i + 1;
         return (
-          <label key={v4()} >
+          <label key={i} >
             <input
               className="rating"
               type="radio"
               name="rating"
               value={ratingValue}
               onClick={() => setRating(ratingValue)}
-              // id="rating"
             />
             <FaHeart
               className="heart"

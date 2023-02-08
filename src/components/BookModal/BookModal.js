@@ -2,31 +2,33 @@ import "./BookModal.scss";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Rating from "../rating/Rating";
-import { useRef } from "react";
+import { useRef} from "react";
 import { v4 } from "uuid";
-
-
 
 export default function BookModal({ closeModal, setAdd }) {
   const formRef = useRef();
   const navigate = useNavigate();
 
+
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log("hello")
+    setAdd(false);
 
-    axios.post ("http://localhost:8080/library",{
-      id:v4(),
-      title:formRef.current.title.value,
-      author:formRef.current.author.value,
-      series:formRef.current.series.value,
-      rating:formRef.current.rating.value,
-      finished:formRef.current.finished.value,
-    })
-    .catch((error) =>{
-      console.log(error, "Error");
-    })
-    navigate("/library/addBook")
+
+    axios
+      .post("http://localhost:8080/library", {
+        id: v4(),
+        title: formRef.current.title.value,
+        author: formRef.current.author.value,
+        series: formRef.current.series.value,
+        rating: formRef.current.rating.value,
+        finished: formRef.current.finished.value,
+      })
+      .catch((error) => {
+        console.log(error, "Error");
+      });
+    navigate("/library/addBook");
   };
 
   return (
@@ -75,7 +77,7 @@ export default function BookModal({ closeModal, setAdd }) {
           </label>
           <label className="book-modal__label">
             Rating
-            <Rating className="book-modal__rating" id="rating"/>
+            <Rating/>
           </label>
           <label className="book-modal__label book-modal__label-finished">
             Finished
@@ -99,9 +101,6 @@ export default function BookModal({ closeModal, setAdd }) {
             <button
               className="book-modal__add"
               type="submit"
-              onClick={() => {
-                setAdd(false);
-              }}
             >
               Add
             </button>
