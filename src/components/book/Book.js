@@ -9,7 +9,6 @@ export default function Book({ book, bookId}) {
   const [selectedBookId, setSelectedBookId] = useState("");
 
   let addRef = useRef();
-
   let id = bookId 
 
 
@@ -30,7 +29,7 @@ export default function Book({ book, bookId}) {
     
 
   return (
-    <>
+    <main className="main__shelf main__shelf-books">
       {book
         .filter((books) => {
           return books.id !== id;
@@ -40,7 +39,7 @@ export default function Book({ book, bookId}) {
           return (
             <main ref={addRef} key={v4()} >
               <div
-                className="clicked__trigger"
+                className="clicked__trigger "
                 onClick={() => {
                   setClickedBook(!clickedBook)
                   setSelectedBookId(books.id)
@@ -61,7 +60,7 @@ export default function Book({ book, bookId}) {
                   <ClickedBook selectedBook={selectedBook}/>
                 )}
               </div>
-    </>
+    </main >
   );
 }
 

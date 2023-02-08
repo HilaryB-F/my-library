@@ -4,8 +4,7 @@ import AddBook from "../AddBook/AddBook";
 export default function shelf() {
   return (
     <div>
-      <section className="main__shelf">
-        <AddBook />
+      <section className="edit__shelf">
         <AddBook />
         <AddBook />
         <AddBook />

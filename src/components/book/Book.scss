@@ -3,7 +3,7 @@
 .main {
   &__slot {
     display:flex;
-    width: 3rem;
+    width: 3.2rem;
     height: 12.5vh;
     margin: 0.2rem;
     border: 2px solid rgb(0, 0, 0, 0.1);
@@ -16,13 +16,25 @@
     color: $yellow;
     background-color: $lightBrown;
     border:2px solid $brown;
+    border-radius: 3px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 
 
+
     &:hover {
-      border: 2px solid $yellow;
+      border: 3px solid $yellow;
       transition: (200ms);
     }
+  }
+
+  &__shelf-books{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $lightOlive;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    // height: 13vh;
+    margin: 0.5rem;
   }
 }
 

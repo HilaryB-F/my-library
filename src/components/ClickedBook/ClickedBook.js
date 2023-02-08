@@ -4,7 +4,7 @@ import Decal2 from "../../assets/images/decal2.png";
 import BookDecal from "../../assets/images/bookDecal.gif";
 
 export default function ClickedBook({ selectedBook }) {
-
+  console.log(selectedBook.rating)
   return (
     <main className="clicked__background" key={selectedBook.id}>
       <section className="clicked__container">

@@ -4,9 +4,12 @@ import React from "react";
 import { useState } from "react";
 import {v4} from "uuid";
 
+
 export default function Rating() {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+
+
 
   return (
     <div className ="rating__container">
@@ -20,7 +23,7 @@ export default function Rating() {
               name="rating"
               value={ratingValue}
               onClick={() => setRating(ratingValue)}
-              id="rating"
+              // id="rating"
             />
             <FaHeart
               className="heart"
