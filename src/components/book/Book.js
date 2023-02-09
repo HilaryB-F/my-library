@@ -25,8 +25,8 @@ export default function Book({ book, bookId}) {
   });
 
     const selectedBook = book.find(book => book.id === selectedBookId);
-
     
+
 
   return (
     <main className="main__shelf main__shelf-books">
@@ -36,6 +36,10 @@ export default function Book({ book, bookId}) {
         })
 
         .map((books) => {
+          let image = books.image
+          if(image){
+          return <img key={v4()} src={books.image} alt="details" className="main__image"/>}
+        
           return (
             <main ref={addRef} key={v4()} >
               <div

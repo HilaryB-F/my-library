@@ -5,11 +5,6 @@ export default function Bookshelf({book, bookId}) {
   return (
     <main className="main__container">
       <Shelf book ={book}  bookId={bookId}/>
-      {/* <Shelf book ={book} selectedBook={selectedBook} bookId={bookId}/>
-      <Shelf book ={book} selectedBook={selectedBook} bookId={bookId}/>
-      <Shelf book ={book} selectedBook={selectedBook} bookId={bookId}/>
-      <Shelf book ={book} selectedBook={selectedBook} bookId={bookId} />
-      <Shelf book ={book} selectedBook={selectedBook} bookId={bookId}/> */}
     </main>
   );
 }

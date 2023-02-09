@@ -33,10 +33,16 @@ export default function PlantModal({ closePlantModal, setAdd }) {
                 alt="Plant"
                 key={plants.id}
                 onClick={() => {
-                  axios.post("http://localhost:8080/library").catch((error) => {
-                    console.log(error, "Error");
-                  });
+                  axios
+                    .post("http://localhost:8080/library", {
+                      image: `${plants.image}`,
+                    })
+                    .catch((error) => {
+                      console.log(error, "Error");
+                    });
                   navigate("/library");
+                  setAdd(false);
+                  console.log(`${plants.image}`);
                 }}
               />
             );

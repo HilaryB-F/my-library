@@ -14,6 +14,8 @@ export default function BookModal({ closeModal, setAdd }) {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     setAdd(false);
+    closeModal(false);
+
 
 
     axios
@@ -23,12 +25,13 @@ export default function BookModal({ closeModal, setAdd }) {
         author: formRef.current.author.value,
         series: formRef.current.series.value,
         rating: formRef.current.rating.value,
+        order: formRef.current.order.value,
         finished: formRef.current.finished.value,
       })
       .catch((error) => {
         console.log(error, "Error");
       });
-    navigate("/library/addBook");
+    navigate("/library");
   };
 
   return (
@@ -76,6 +79,15 @@ export default function BookModal({ closeModal, setAdd }) {
             ></input>
           </label>
           <label className="book-modal__label">
+            Book #
+            <input
+              className="book-modal__input"
+              type="number"
+              placeholder="_ _ _ _ _ _ _ _ _ _ _ _ "
+              id="order"
+            ></input>
+          </label>
+          <label className="book-modal__label">
             Rating
             <Rating/>
           </label>
@@ -90,7 +102,7 @@ export default function BookModal({ closeModal, setAdd }) {
           <section className="buttons">
             <Link
               className="book-modal__close"
-              to="/library/addBook"
+              to="/library"
               onClick={() => {
                 closeModal(false);
                 setAdd(false);

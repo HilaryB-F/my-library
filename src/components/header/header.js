@@ -3,7 +3,7 @@ import Menu from "../../assets/icons/menu.png";
 import Dropdown from "../menu/menu";
 import { useState, useRef, useEffect } from "react";
 
-export default function Header() {
+export default function Header({ book }) {
   const [showMenu, setShowMenu] = useState(false);
 
   const menuRef = useRef();
@@ -27,8 +27,9 @@ export default function Header() {
         <input
           className="header__nav--search"
           type="search"
-          placeholder="Search"
-        ></input>{" "}
+          placeholder="Search..."
+        />
+        
         <section className="menu__container" ref={menuRef}>
           <div
             className="menu__trigger"

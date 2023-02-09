@@ -24,13 +24,9 @@ export default function Library() {
     getNextBook();
   }, []);
 
-
-
- 
-// console.log(selectedBook.title)
   return (
     <>
-      <Header />
+    <Header book={book}/>
       <Bookshelf book={book}  bookId = {bookId}/>
     </>
   );
