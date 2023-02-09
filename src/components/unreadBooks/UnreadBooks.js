@@ -1,14 +1,15 @@
-import "./Book.scss";
+import './UnreadBooks.scss'
 import { useState, useEffect, useRef } from "react";
 import ClickedBook from "../ClickedBook/ClickedBook";
 import { v4 } from "uuid";
 
-export default function Book({ book, bookId }) {
+export default function UnreadBooks(unread, unreadBookId) {
+  
   const [clickedBook, setClickedBook] = useState(false);
-  const [selectedBookId, setSelectedBookId] = useState("");
+  const [selectedUnreadBookId, setSelectedUnreadBookId] = useState("");
 
   let addRef = useRef();
-  let id = bookId;
+  let id = unreadBookId;
 
   useEffect(() => {
     let handler = (e) => {
@@ -22,22 +23,22 @@ export default function Book({ book, bookId }) {
     };
   });
 
-  const selectedBook = book.find((book) => book.id === selectedBookId);
+  const selectedBook = unread.find((unread) => unread.id === selectedUnreadBookId);
 
   return (
     <main className="main__shelf main__shelf-books">
-      {book
-        .filter((books) => {
-          return books.id !== id;
+      {unread
+        .filter((unreadBooks) => {
+          return unreadBooks.id !== id;
         })
 
-        .map((books) => {
-          let image = books.image;
+        .map((unreadBooks) => {
+          let image = unreadBooks.image;
           if (image === "http://localhost:8080/ladder.png") {
             return (
               <img
                 key={v4()}
-                src={books.image}
+                src={unreadBooks.image}
                 alt="details"
                 className="main__image-ladder"
               />
@@ -46,7 +47,7 @@ export default function Book({ book, bookId }) {
             return (
               <img
                 key={v4()}
-                src={books.image}
+                src={unreadBooks.image}
                 alt="details"
                 className="main__image-zebra"
               />
@@ -55,7 +56,7 @@ export default function Book({ book, bookId }) {
             return (
               <img
                 key={v4()}
-                src={books.image}
+                src={unreadBooks.image}
                 alt="details"
                 className="main__image-dino"
               />
@@ -64,7 +65,7 @@ export default function Book({ book, bookId }) {
             return (
               <img
                 key={v4()}
-                src={books.image}
+                src={unreadBooks.image}
                 alt="details"
                 className="main__image"
               />
@@ -76,11 +77,11 @@ export default function Book({ book, bookId }) {
                 className="clicked__trigger "
                 onClick={() => {
                   setClickedBook(!clickedBook);
-                  setSelectedBookId(books.id);
+                  setSelectedUnreadBookId(unreadBooks.id);
                 }}
               >
-                <div className="main__slot" id={`${books.id}`}>
-                  {books.title}
+                <div className="main__slot" id={`${unreadBooks.id}`}>
+                  {unreadBooks.title}
                 </div>
               </div>
             </main>

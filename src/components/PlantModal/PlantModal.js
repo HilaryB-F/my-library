@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function PlantModal({ closePlantModal, setAdd }) {
+export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
   const [plant, setPlant] = useState([]);
   const navigate = useNavigate();
 
@@ -37,12 +37,13 @@ export default function PlantModal({ closePlantModal, setAdd }) {
                     .post("http://localhost:8080/library", {
                       image: `${plants.image}`,
                     })
+                    .then(getBooks)
                     .catch((error) => {
                       console.log(error, "Error");
                     });
-                  navigate("/library");
+
                   setAdd(false);
-                  console.log(`${plants.image}`);
+                  setShowMenu(false);
                 }}
               />
             );

@@ -2,21 +2,18 @@ import "./BookModal.scss";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Rating from "../rating/Rating";
-import { useRef} from "react";
+import { useRef } from "react";
 import { v4 } from "uuid";
 
-export default function BookModal({ closeModal, setAdd }) {
+export default function BookModal({ closeModal, setAdd, setShowMenu, getBooks }) {
   const formRef = useRef();
   const navigate = useNavigate();
-
-
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
     setAdd(false);
     closeModal(false);
-
-
+    setShowMenu(false);
 
     axios
       .post("http://localhost:8080/library", {
@@ -28,6 +25,7 @@ export default function BookModal({ closeModal, setAdd }) {
         order: formRef.current.order.value,
         finished: formRef.current.finished.value,
       })
+      .then(getBooks)
       .catch((error) => {
         console.log(error, "Error");
       });
@@ -89,7 +87,7 @@ export default function BookModal({ closeModal, setAdd }) {
           </label>
           <label className="book-modal__label">
             Rating
-            <Rating/>
+            <Rating />
           </label>
           <label className="book-modal__label book-modal__label-finished">
             Finished
@@ -106,14 +104,12 @@ export default function BookModal({ closeModal, setAdd }) {
               onClick={() => {
                 closeModal(false);
                 setAdd(false);
+                setShowMenu(false);
               }}
             >
               Cancel
             </Link>
-            <button
-              className="book-modal__add"
-              type="submit"
-            >
+            <button className="book-modal__add" type="submit">
               Add
             </button>
           </section>

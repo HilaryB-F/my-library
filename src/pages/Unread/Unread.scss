@@ -2,7 +2,7 @@
 
 .main {
   &__slot {
-    display:flex;
+    display: flex;
     width: 3.2rem;
     height: 12.5vh;
     margin: 0.2rem;
@@ -14,8 +14,8 @@
     align-items: center;
     text-align: center;
     color: $yellow;
-    background-image:url("../../assets/images/leather.jpg");
-    border:2px solid $brown;
+    background-image: url("../../assets/images/leather.jpg");
+    border: 2px solid $brown;
     border-radius: 3px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -27,7 +27,7 @@
     }
   }
 
-  &__shelf-books{
+  &__shelf-books {
     display: flex;
     flex-wrap: wrap;
     background-color: $lightOlive;
@@ -36,43 +36,41 @@
     margin: 0.5rem;
   }
 
-  &__image{
-    height:10rem;
+  &__image {
+    height: 10rem;
 
-    &-ladder{
-      height:62rem;
-      width:15rem;
+    &-ladder {
+      height: 62rem;
+      width: 15rem;
       position: absolute;
-      left:38rem;
-      top:23rem;
+      left: 38rem;
+      top: 23rem;
     }
-    &-zebra{
-      width:10rem;
-      height:5rem;
+    &-zebra {
+      width: 10rem;
+      height: 5rem;
       margin-top: 4.8rem;
     }
-    &-dino{
-      width:15rem;
-      height:7rem;
+    &-dino {
+      width: 15rem;
+      height: 7rem;
       margin-top: 2.8rem;
-
     }
   }
 }
 
-.clicked{
-
-  &__book.active{
-    position:absolute;
-    margin-left:1.5rem;
+.clicked {
+  &__book.active {
+    position: absolute;
+    margin-left: 1.5rem;
     opacity: 1;
     visibility: visible;
     transition: (500ms) ease;
   }
 
-  &__book.inactive{
-    position:absolute;
-    margin-left:1.5rem;
+  &__book.inactive {
+    position: absolute;
+    margin-left: 1.5rem;
     opacity: 0;
     visibility: hidden;
     transition: (500ms) ease;

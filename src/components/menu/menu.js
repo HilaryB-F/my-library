@@ -1,16 +1,18 @@
 import "./menu.scss";
-import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import Bookdrop from "../book-drop/book-drop";
+import ViewDrop from "../view-drop/ViewDrop";
 
-export default function Menu() {
+export default function Menu({setShowMenu, getBooks}) {
   const [add, setAdd] = useState(false);
+  const [addView, setAddView] = useState(false);
   let addRef = useRef();
 
   useEffect(() => {
     let handler = (e) => {
       if (!addRef.current.contains(e.target)) {
-        setAdd(false);
+        setAdd(false)
+        setAddView(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -26,19 +28,34 @@ export default function Menu() {
           <div
             className="book__trigger dropdown__text"
             onClick={() => {
-              setAdd(!add);
+              setAdd(!add)
+              setAddView(false)
+              ;
             }}
           >
             Add
           </div>
           <div className={`add-book__down ${add ? "active" : "inactive"}`}>
-        {add && <Bookdrop setAdd={setAdd} />}
+        {add && <Bookdrop setAdd={setAdd} setShowMenu={setShowMenu} getBooks={getBooks} setView={setAddView} />}
       </div>
         </section>
         <hr></hr>
         <h2 className="dropdown__text">Theme</h2>
         <hr></hr>
-        <h2 className="dropdown__text">View</h2>
+        <section className="add-book__container" ref={addRef}>
+          <div
+            className="book__trigger dropdown__text"
+            onClick={() => {
+              setAdd(false)
+              setAddView(!addView);
+            }}
+          >
+            View
+          </div>
+          <div className={`add-view__drop ${addView ? "active" : "inactive"}`}>
+        {addView && <ViewDrop />}
+      </div>
+        </section>
       </section>
      
     </>
