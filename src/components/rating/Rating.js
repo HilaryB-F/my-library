@@ -23,7 +23,8 @@ export default function Rating() {
               value={ratingValue}
               onClick={() => setRating(ratingValue)}
             />
-            <FaHeart
+            <FaHeart 
+
               className="heart"
               size={40}
               color={ratingValue <= (hover || rating) ? "#F84B4B" : "#4B1F19"}
