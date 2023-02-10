@@ -2,6 +2,8 @@
 @use "../../styles/partials/mixins" as * ;
 
 .login{
+    
+    
     &__container{
         display:flex;
         flex-direction: row;
@@ -17,18 +19,34 @@
         margin-top:20%;
 
     }
+    &__title{
+        font-size:3.6rem;
+        font-weight: 700;
+        margin:0;
+    }
     &__img{
          height:25vh;
          padding:0;
     }
+    &__quote{
+        margin-bottom:0;
+    }
+    &__author{
+        font-size: 1.4rem;
+        font-weight:600;
+        margin-bottom:3rem;
+        margin-top:0.5rem;
+    }
     &__welcome{
+        color:$brown;
         font-weight: 400;
         text-align: center;
         min-width:40%;
     }
     &__link{
+        color:$brown;
         text-decoration: none;
-        color:black;
+        font-weight: 600;
         background-color: $green;
         padding-left:3rem;
         padding-right:3rem;

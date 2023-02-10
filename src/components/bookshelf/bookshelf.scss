@@ -7,8 +7,7 @@
         justify-content: space-between;
         background-color:$olive;
         height:90vh;
-        width:95%;
-        min-width: 360px;
+        width: 520px;
         margin:1rem;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         border-radius: 5px;
@@ -16,11 +15,4 @@
        
     }
 
-    &__shelf{
-        background-color:$lightOlive ;
-        box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
-        border-radius: 5px;
-        height:14vh;
-        margin:0.5rem;
-    }
 }
