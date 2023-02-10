@@ -1,26 +1,19 @@
 @use "../../styles/partials/variables" as *;
 
 .plant-modal {
-
-    &__background{
-        background-color: rgba(0, 0, 0, 0.1);
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-        display: flex;
-        justify-content: center;
-        margin:auto;
-    }
     &__container {
         margin:auto;
+        position:fixed;
         display: flex;
+        top: 6rem;
+        left: -35rem;
         flex-direction: column;
         align-items: start;
         background-color: $green;
         border-radius: 10px;
         border: 2px solid $darkGreen;
         box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-        // height: 45vh;
+        width:420px;
         padding: 1rem;
        
       }
@@ -31,5 +24,30 @@
         width: 90%;
         margin: 0.5rem;
         padding-bottom: 1rem;
+      }
+      &__grid{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
+      &__plant{
+        height:12rem;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        border:2px solid $darkGreen;
+        border-radius: 3px;
+        margin:0.2rem;
+        
+        &:hover{
+          border-radius: 10px;
+          background-color: $lightOlive;
+          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+          transition:(200ms) ease-out;
+        }
+    
+        &:active{
+          background-color: $darkGreen;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
       }
 }

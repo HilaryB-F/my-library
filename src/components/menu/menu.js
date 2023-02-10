@@ -1,17 +1,63 @@
 import "./menu.scss";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import Bookdrop from "../book-drop/book-drop";
+import ViewDrop from "../view-drop/ViewDrop";
 
+export default function Menu({setShowMenu, book, setActive}) {
+  const [add, setAdd] = useState(false);
+  const [addView, setAddView] = useState(false);
+  let addRef = useRef();
 
-export default function Menu() {
+  useEffect(() => {
+    let handler = (e) => {
+      if (!addRef.current.contains(e.target)) {
+        setAdd(false)
+        setAddView(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
+
   return (
-    <section className="dropdown__container">
-      <Link className="dropdown__text" to="/library/addBook">Add</Link>
-      <hr></hr>
-      <h2 className="dropdown__text">Theme</h2>
-      <hr></hr>
-      <h2 className="dropdown__text">View</h2>
-      <hr></hr>
-      <Link className="dropdown__text" to="/library">Home</Link>
-    </section>
+    <>
+      <section className="dropdown__container" ref={addRef}>
+        <section className="add-book__container" >
+          <div
+            className="book__trigger dropdown__text"
+            onClick={() => {
+              setAdd(!add)
+              setAddView(false)
+              ;
+            }}
+          >
+            Add
+          </div>
+          <div className={`add-book__down ${add ? "active" : "inactive"}`}>
+        {add && <Bookdrop setAdd={setAdd} setShowMenu={setShowMenu} setView={setAddView} />}
+      </div>
+        </section>
+        <hr></hr>
+        <h2 className="dropdown__text">Theme</h2>
+        <hr></hr>
+        <section className="add-book__container">
+          <div
+            className="book__trigger dropdown__text"
+            onClick={() => {
+              setAdd(false)
+              setAddView(!addView);
+            }}
+          >
+            View
+          </div>
+          <div className={`add-view__drop ${addView ? "active" : "inactive"}`}>
+        {addView && <ViewDrop book={book} setActive={setActive}/>}
+      </div>
+        </section>
+      </section>
+     
+    </>
   );
 }
