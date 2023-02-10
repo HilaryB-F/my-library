@@ -7,28 +7,46 @@ import axios from "axios";
 
 export default function Library() {
   const [book, setBook] = useState([]);
-  const [active, setActive] = useState("All");
+  const [selectedBook, setSelectedBook] = useState([]);
 
   const { bookId } = useParams();
-
-  async function getNextBook() {
-    try {
-      const { data } = await axios.get(`http://localhost:8080/library`);
-      setBook(data);
-    } catch (error) {
-      console.log(error, "Error");
-    }
-  }
+  let id = bookId ||"1"
 
   useEffect(() => {
+    async function getSelectedBook() {
+      try {
+        const { data } = await axios.get(
+          `http://localhost:8080/library/${id}`
+        );
+        setSelectedBook(data);
+      } catch (error) {
+        console.log(error, "Error");
+      }
+    }
+    getSelectedBook();
+  }, [id])
+
+
+  useEffect(() => {
+    async function getNextBook() {
+      try {
+        const { data } = await axios.get(`http://localhost:8080/library`);
+        setBook(data);
+      } catch (error) {
+        console.log(error, "Error");
+      }
+    }
     getNextBook();
   }, []);
 
 
+
+ 
+// console.log(selectedBook.title)
   return (
     <>
-      <Header book={book} getBooks={getNextBook} setActive ={setActive} active={active}/>
-      <Bookshelf book={book} bookId={bookId} active={active} />
+      <Header />
+      <Bookshelf book={book} selectedBook={selectedBook} bookId = {bookId}/>
     </>
   );
 }

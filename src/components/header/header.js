@@ -3,7 +3,7 @@ import Menu from "../../assets/icons/menu.png";
 import Dropdown from "../menu/menu";
 import { useState, useRef, useEffect } from "react";
 
-export default function Header({book, setActive, active}) {
+export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   const menuRef = useRef();
@@ -22,15 +22,13 @@ export default function Header({book, setActive, active}) {
 
   return (
     <header className="header__container">
-      {active === "All" && <h1 className="header__title">My Library</h1>}
-      {active === "Unread" && <h1 className="header__title">Unread</h1>}
+      <h1 className="header__title">My Library</h1>
       <nav className="header__nav">
         <input
           className="header__nav--search"
           type="search"
-          placeholder="Search..."
-        />
-        
+          placeholder="Search"
+        ></input>{" "}
         <section className="menu__container" ref={menuRef}>
           <div
             className="menu__trigger"
@@ -41,7 +39,7 @@ export default function Header({book, setActive, active}) {
             <img className="header__nav--menu" src={Menu} alt="Menu" />
           </div>
           <div className={`menu__dropdown ${showMenu ? "active" : "inactive"}`}>
-            <Dropdown setShowMenu={setShowMenu} book ={book} setActive={setActive}/>
+            <Dropdown />
           </div>
         </section>
       </nav>

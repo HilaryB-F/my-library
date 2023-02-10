@@ -1,36 +1,30 @@
 import "./BookModal.scss";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Rating from "../rating/Rating";
 import { useRef } from "react";
 import { v4 } from "uuid";
-import BookColor from "../BookColor/BookColor";
 
-export default function BookModal({ closeModal, setAdd, setShowMenu, getBooks }) {
+
+
+export default function BookModal({ closeModal, setAdd }) {
   const formRef = useRef();
-  const navigate = useNavigate();
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    setAdd(false);
-    closeModal(false);
-    setShowMenu(false);
+    console.log("hello")
 
-    axios
-      .post("http://localhost:8080/library", {
-        id: v4(),
-        title: formRef.current.title.value,
-        author: formRef.current.author.value,
-        series: formRef.current.series.value,
-        rating: formRef.current.rating.value,
-        order: formRef.current.order.value,
-        finished: formRef.current.finished.value,
-      })
-      .then(getBooks)
-      .catch((error) => {
-        console.log(error, "Error");
-      });
-    navigate("/library");
+    axios.post ("http://localhost:8080/library",{
+      id:v4(),
+      title:formRef.current.title.value,
+      author:formRef.current.author.value,
+      series:formRef.current.series.value,
+      rating:formRef.current.rating.value,
+      finished:formRef.current.finished.value,
+    })
+    .catch((error) =>{
+      console.log(error, "Error");
+    })
   };
 
   return (
@@ -78,21 +72,8 @@ export default function BookModal({ closeModal, setAdd, setShowMenu, getBooks })
             ></input>
           </label>
           <label className="book-modal__label">
-            Book #
-            <input
-              className="book-modal__input"
-              type="number"
-              placeholder="_ _ _ _ _ _ _ _ _ _ _ _ "
-              id="order"
-            ></input>
-          </label>
-          <label className="book-modal__label">
             Rating
-            <Rating />
-          </label>
-          <label className="book-modal__label">
-            Colour
-            <BookColor/>
+            <Rating className="book-modal__rating" />
           </label>
           <label className="book-modal__label book-modal__label-finished">
             Finished
@@ -105,16 +86,22 @@ export default function BookModal({ closeModal, setAdd, setShowMenu, getBooks })
           <section className="buttons">
             <Link
               className="book-modal__close"
-              to="/library"
+              to="/library/addBook"
               onClick={() => {
                 closeModal(false);
                 setAdd(false);
-                setShowMenu(false);
               }}
             >
               Cancel
             </Link>
-            <button className="book-modal__add" type="submit">
+            <button
+              className="book-modal__add"
+              type="submit"
+              onClick={() => {
+                // closeModal(false);
+                setAdd(false);
+              }}
+            >
               Add
             </button>
           </section>

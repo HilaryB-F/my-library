@@ -4,11 +4,10 @@ import BookModal from "../BookModal/BookModal";
 import PlantModal from "../PlantModal/PlantModal";
 import DecorModal from "../DecorModal/DecorModal";
 
-export default function Bookdrop({ setAdd, setShowMenu, getBooks }) {
+export default function Bookdrop({ setAdd }) {
   const [openModal, setOpenModal] = useState(false);
   const [openPlantModal, setOpenPlantModal] = useState(false);
   const [openDecorModal, setOpenDecorModal] = useState(false);
-
   return (
     <section className="drop__container">
       <h2
@@ -17,7 +16,6 @@ export default function Bookdrop({ setAdd, setShowMenu, getBooks }) {
           setOpenModal(true);
           setOpenPlantModal(false)
           setOpenDecorModal(false)
-          console.log("Hello")
         }}
       >
         Book
@@ -29,7 +27,6 @@ export default function Bookdrop({ setAdd, setShowMenu, getBooks }) {
           setOpenPlantModal(true);
           setOpenModal(false)
           setOpenDecorModal(false)
-
         }}
       >
         Plant
@@ -53,8 +50,6 @@ export default function Bookdrop({ setAdd, setShowMenu, getBooks }) {
             closeModal={setOpenModal}
             openModal={openModal}
             setAdd={setAdd}
-            setShowMenu={setShowMenu}
-            getBooks={getBooks}
           />
         )}
       </div>
@@ -63,10 +58,9 @@ export default function Bookdrop({ setAdd, setShowMenu, getBooks }) {
       >
         {openPlantModal && (
           <PlantModal
+            closeModal={setOpenPlantModal}
+            openModal={openPlantModal}
             setAdd={setAdd}
-            setShowMenu={setShowMenu}
-            getBooks={getBooks}
-
           />
         )}
       </div>
@@ -75,10 +69,9 @@ export default function Bookdrop({ setAdd, setShowMenu, getBooks }) {
       >
         {openDecorModal && (
           <DecorModal
+            closeModal={setOpenDecorModal}
+            openModal={openDecorModal}
             setAdd={setAdd}
-            setShowMenu={setShowMenu}
-            getBooks={getBooks}
-
           />
         )}
       </div>
