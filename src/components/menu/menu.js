@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Bookdrop from "../book-drop/book-drop";
 import ViewDrop from "../view-drop/ViewDrop";
 
-export default function Menu({setShowMenu, getBooks}) {
+export default function Menu({setShowMenu, book}) {
   const [add, setAdd] = useState(false);
   const [addView, setAddView] = useState(false);
   let addRef = useRef();
@@ -23,8 +23,8 @@ export default function Menu({setShowMenu, getBooks}) {
 
   return (
     <>
-      <section className="dropdown__container">
-        <section className="add-book__container" ref={addRef}>
+      <section className="dropdown__container" ref={addRef}>
+        <section className="add-book__container" >
           <div
             className="book__trigger dropdown__text"
             onClick={() => {
@@ -36,13 +36,13 @@ export default function Menu({setShowMenu, getBooks}) {
             Add
           </div>
           <div className={`add-book__down ${add ? "active" : "inactive"}`}>
-        {add && <Bookdrop setAdd={setAdd} setShowMenu={setShowMenu} getBooks={getBooks} setView={setAddView} />}
+        {add && <Bookdrop setAdd={setAdd} setShowMenu={setShowMenu} setView={setAddView} />}
       </div>
         </section>
         <hr></hr>
         <h2 className="dropdown__text">Theme</h2>
         <hr></hr>
-        <section className="add-book__container" ref={addRef}>
+        <section className="add-book__container">
           <div
             className="book__trigger dropdown__text"
             onClick={() => {
@@ -53,7 +53,7 @@ export default function Menu({setShowMenu, getBooks}) {
             View
           </div>
           <div className={`add-view__drop ${addView ? "active" : "inactive"}`}>
-        {addView && <ViewDrop />}
+        {addView && <ViewDrop book={book} />}
       </div>
         </section>
       </section>

@@ -17,6 +17,7 @@ export default function Bookdrop({ setAdd, setShowMenu, getBooks }) {
           setOpenModal(true);
           setOpenPlantModal(false)
           setOpenDecorModal(false)
+          console.log("Hello")
         }}
       >
         Book

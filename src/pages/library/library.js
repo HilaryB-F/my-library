@@ -23,7 +23,7 @@ export default function Library() {
     getNextBook();
   }, []);
 
-  console.log(book);
+
   return (
     <>
       <Header book={book} getBooks={getNextBook} />
