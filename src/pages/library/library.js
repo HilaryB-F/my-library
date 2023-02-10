@@ -7,6 +7,7 @@ import axios from "axios";
 
 export default function Library() {
   const [book, setBook] = useState([]);
+  const [active, setActive] = useState("All");
 
   const { bookId } = useParams();
 
@@ -26,8 +27,8 @@ export default function Library() {
 
   return (
     <>
-      <Header book={book} getBooks={getNextBook} />
-      <Bookshelf book={book} bookId={bookId} />
+      <Header book={book} getBooks={getNextBook} setActive ={setActive} active={active}/>
+      <Bookshelf book={book} bookId={bookId} active={active} />
     </>
   );
 }

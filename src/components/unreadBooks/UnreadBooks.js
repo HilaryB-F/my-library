@@ -68,7 +68,7 @@ export default function UnreadBooks({book, bookId}) {
                   className="main__image"
                 />
               );
-            }else if( books.room === "Unread")
+            }else if( books.room === "Unread"){
             return (
               <main ref={addRef} key={v4()}>
                 <div
@@ -84,6 +84,7 @@ export default function UnreadBooks({book, bookId}) {
                 </div>
               </main>
             );
+          } 
           })}
         <div className={`clicked__book ${clickedBook ? "active" : "inactive"}`}>
           {clickedBook && <ClickedBook selectedBook={selectedBook} />}
@@ -91,4 +92,5 @@ export default function UnreadBooks({book, bookId}) {
       </main>
     );
   }
+
   

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Rating from "../rating/Rating";
 import { useRef } from "react";
 import { v4 } from "uuid";
+import BookColor from "../BookColor/BookColor";
 
 export default function BookModal({ closeModal, setAdd, setShowMenu, getBooks }) {
   const formRef = useRef();
@@ -88,6 +89,10 @@ export default function BookModal({ closeModal, setAdd, setShowMenu, getBooks })
           <label className="book-modal__label">
             Rating
             <Rating />
+          </label>
+          <label className="book-modal__label">
+            Colour
+            <BookColor/>
           </label>
           <label className="book-modal__label book-modal__label-finished">
             Finished

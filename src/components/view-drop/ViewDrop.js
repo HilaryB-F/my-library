@@ -1,26 +1,20 @@
 import "./ViewDrop.scss";
-import { Link } from "react-router-dom";
-// import axios from "axios";
 
-export default function ViewDrop({ book }) {
+
+export default function ViewDrop({ book, setActive }) {
 
 
   return (
     <main className="drop-view__container">
-      <Link to="/library" className="drop-view__text" onClick={() => {}}>
+      <h2  className="drop-view__text" onClick={() => {setActive("All")}}>
         Home
-      </Link>
+      </h2>
       <hr></hr>
       <h2
         
         className="drop-view__text"
         onClick={() => {
-          book.map((unreadBooks)=>{
-            if (unreadBooks.room === "Unread"){
-              return console.log("unread")
-            }
-            return console.log("read")
-          })
+          setActive("Unread")
         }}
       >
         Unread
