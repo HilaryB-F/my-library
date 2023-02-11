@@ -2,20 +2,34 @@ import "./BookModal.scss";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Rating from "../rating/Rating";
-import { useRef } from "react";
-import { v4 } from "uuid";
 import Arrow from "../../assets/icons/arrow-down.png";
+import ColorModal from "../ColorModal/ColorModal";
+import RoomModal from "../RoomModal/RoomModal";
+import { useRef, useState } from "react";
+import { v4 } from "uuid";
 
 export default function BookModal({
   closeModal,
   setAdd,
   setShowMenu,
-  getBooks
+  getBooks,
 }) {
-
   const formRef = useRef();
   const navigate = useNavigate();
 
+  const [openColor, setOpenColor] = useState(false);
+  const [openRoom, setOpenRoom] = useState(false);
+
+  const [colorValue, setColorValue] = useState("Leather");
+  const [roomValue, setRoomValue] = useState("My Library");
+
+  const colorChange = (e) => {
+    setColorValue(e.target.value);
+  };
+  const roomChange = (e) => {
+    setRoomValue(e.target.value);
+  };
+  
   const handleOnSubmit = (e) => {
     e.preventDefault();
     setAdd(false);
@@ -40,7 +54,6 @@ export default function BookModal({
       });
     navigate("/library");
   };
-
   return (
     <main className="book-modal__background">
       <section className="book-modal__container">
@@ -100,24 +113,45 @@ export default function BookModal({
           </label>
           <label className="book-modal__label">
             Colour
-        
-            <select className="color__container" id="color">
-
-                <option className="color__text">Leather (Default)</option>
-                <option className="color__text">Purple</option>
-                <option className="color__text">Blue</option>
-                <option className="color__text">Pink</option>
-                <option className="color__text">Turquoise</option>
-                
-              
-            </select>
+            <div className="book-modal__input-img">
+              <input
+                type="text"
+                className="book-modal__input book-modal__input-color"
+                id="color"
+                value={colorValue}
+                onChange={colorChange}
+              ></input>
+              <img
+                src={Arrow}
+                alt="Arrow Down"
+                className="book-modal__icon"
+                onClick={() => {
+                  setOpenColor(!openColor);
+                  setOpenRoom(false);
+                }}
+              />
+            </div>
           </label>
           <label className="book-modal__label">
             Room
-            <select className="color__container" id="room">
-                <option className="color__text">_ _ _ _ _ _ _ _ _ _ _</option>
-                <option className="color__text">Unread</option>     
-            </select>
+            <div className="book-modal__input-img">
+              <input
+                type="text"
+                className="book-modal__input book-modal__input-room"
+                id="room"
+                value={roomValue}
+                onChange={roomChange}
+              ></input>
+              <img
+                src={Arrow}
+                alt="Arrow Down"
+                className="book-modal__icon"
+                onClick={() => {
+                  setOpenRoom(!openRoom);
+                  setOpenColor(false);
+                }}
+              />
+            </div>
           </label>
           <label className="book-modal__label book-modal__label-finished">
             Finished
@@ -144,6 +178,25 @@ export default function BookModal({
             </button>
           </section>
         </form>
+        <div
+          className={`color-modal__dropdown ${
+            openColor ? "active" : "inactive"
+          }`}
+        >
+          {openColor && (
+            <ColorModal
+              setColorValue={setColorValue}
+              setOpenColor={setOpenColor}
+            />
+          )}
+        </div>
+        <div
+          className={`room-modal__dropdown ${openRoom ? "active" : "inactive"}`}
+        >
+          {openRoom && (
+            <RoomModal setRoomValue={setRoomValue} setOpenRoom={setOpenRoom} />
+          )}
+        </div>
       </section>
     </main>
   );

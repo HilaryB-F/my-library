@@ -71,6 +71,27 @@
       color: $brown;
       font-weight: 600;
     }
+    &-img{
+      display:flex;
+      justify-content:end ;
+      align-items: center;
+      width:22.1rem;
+      background-color: $lightOlive;
+      border-left: 2px solid $darkGreen;
+      padding:0.5rem;
+    }
+    &-color{
+      outline:none;
+      text-align:center;
+      margin-left:10rem;
+      width:14.8rem;
+    }
+    &-room{
+      outline:none;
+      text-align:center;
+      margin-left:10rem;
+      width:14.8rem;
+    }
   }
   &__add {
     color: $brown;
@@ -109,6 +130,19 @@
       border-radius: 10px;
     }
   }
+  &__icon{
+    width:3rem;
+    margin-left:3rem;
+    margin-right:0.8rem;
+  }
+
+  &__placeholder{
+
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin:0;
+    
+  }
 }
 
 .buttons {
@@ -145,7 +179,10 @@
     font-size: 1.8rem;
     color:$brown;
     text-align: end;
-    
+  }
+
+  &__text{
+    padding:3rem;
   }
   &__image {
     height: 3rem;
@@ -170,3 +207,5 @@
     transition: (500ms) ease;
   }
 }
+
+// 
