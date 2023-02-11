@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import ClickedBook from "../ClickedBook/ClickedBook";
 import { v4 } from "uuid";
 
-export default function UnreadBooks({book, bookId}) {
+export default function UnreadBooks({book, bookId, bookColor}) {
     const [clickedBook, setClickedBook] = useState(false);
     const [selectedBookId, setSelectedBookId] = useState("");
   

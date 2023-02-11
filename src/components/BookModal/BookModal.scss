@@ -1,12 +1,12 @@
 @use "../../styles/partials/variables" as *;
 
 .book-modal {
-    height: 100vh;
-    width: 100vw;
+  height: 100vh;
+  width: 100vw;
 
   &__container {
     position: fixed;
-    top: 10rem;
+    top: 6rem;
     left: -30rem;
     display: flex;
     flex-direction: column;
@@ -15,11 +15,11 @@
     border-radius: 10px;
     border: 2px solid $darkGreen;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    width:34rem;
-    min-width:340px;
-    min-height:400px;
+    width: 34rem;
+    min-width: 340px;
+    min-height: 400px;
     padding: 1rem;
-    margin:auto;
+    margin: auto;
   }
   &__header {
     font-size: 3.3rem;
@@ -32,70 +32,65 @@
 
   &__label {
     font-weight: 600;
-    font-size:1.8rem;
+    font-size: 1.8rem;
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
     border: 2px solid $darkGreen;
-    border-bottom: none;;
+    border-bottom: none;
     align-items: center;
-    padding-left:1rem;
+    padding-left: 1rem;
 
-    &-finished{
-        border-bottom: 2px solid $darkGreen;
+    &-finished {
+      border-bottom: 2px solid $darkGreen;
     }
-
   }
   &__input {
-    font-size:1.8rem;
-    color:$brown;
+    font-size: 1.8rem;
+    color: $brown;
     border: none;
     background-color: $lightOlive;
     border-left: 2px solid $darkGreen;
     margin-left: 1rem;
     padding: 2rem;
     height: 3rem;
-    padding-left:3.2rem;
+    padding-left: 3.2rem;
     padding-right: 0;
 
-    &-search{
-        background-image: url("../../assets/icons/search.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position:0% center;
-        
+    &-search {
+      background-image: url("../../assets/icons/search.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 0% center;
     }
 
-    &-finished{
-       padding-right:2.6rem;
-       font-family: "Rubik";
-       color:$brown;
-       font-weight: 600;
+    &-finished {
+      padding-right: 2.6rem;
+      font-family: "Rubik";
+      color: $brown;
+      font-weight: 600;
     }
-
   }
-&__add{
+  &__add {
     color: $brown;
-    border:none;
+    border: none;
     background-color: $green;
     font-weight: 400;
     font-size: 2.4rem;
     margin-top: 2rem;
-    margin-right:1rem;
-    padding-left:3rem;
-    padding-right:3rem;
-    padding-top:0.5rem;
-    padding-bottom:0.5rem;
+    margin-right: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 
-
-    &:hover{
-        color:$lightOlive;
-        background-color: $darkGreen;
-        border-radius: 10px;
-     
+    &:hover {
+      color: $lightOlive;
+      background-color: $darkGreen;
+      border-radius: 10px;
     }
-}
+  }
   &__close {
     font-weight: 600;
     font-size: 2.4rem;
@@ -103,43 +98,75 @@
     color: $brown;
     align-self: center;
     text-decoration: none;
-    padding-left:3rem;
-    padding-right:3rem;
-    padding-top:0.5rem;
-    padding-bottom:0.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 
-    &:hover{
-        color:$lightOlive;
-        background-color: $darkGreen;
-        border-radius: 10px;
-     
+    &:hover {
+      color: $lightOlive;
+      background-color: $darkGreen;
+      border-radius: 10px;
     }
   }
 }
 
-.buttons{
-    display: flex;
-    justify-content: space-between;
-    width:90%;
-    align-self: center;
-    margin-top:1rem;
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  align-self: center;
+  margin-top: 1rem;
 }
 
-.rating{
+.rating {
   display: none;
 
-  &__container{
-      padding-right:1rem;
-      padding-left:0.9rem;
-      border-left:2px solid $darkGreen;
-      background-color: $lightOlive;
+  &__container {
+    padding-right: 1rem;
+    padding-left: 0.9rem;
+    border-left: 2px solid $darkGreen;
+    background-color: $lightOlive;
   }
 }
 
-.heart{
-  margin-bottom:0;
-  padding-left:0.5rem;
+.heart {
+  margin-bottom: 0;
+  padding-left: 0.5rem;
   transition: color (300ms) ease;
   cursor: pointer;
+}
+.color {
+  &__container {
+    background-color: $lightOlive;
+    border-left: 2px solid $darkGreen;
+    width: 22.1rem;
+    padding:1rem;
+    font-size: 1.8rem;
+    color:$brown;
+    text-align: end;
+    
+  }
+  &__image {
+    height: 3rem;
+    margin-left: 17.7rem;
 
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__modal.active {
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    transition: (500ms) ease;
+  }
+
+  &__modal.inactive {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: (500ms) ease;
+  }
 }

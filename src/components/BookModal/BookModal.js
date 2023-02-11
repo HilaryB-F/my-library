@@ -2,13 +2,23 @@ import "./BookModal.scss";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Rating from "../rating/Rating";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { v4 } from "uuid";
 import BookColor from "../BookColor/BookColor";
+import Arrow from "../../assets/icons/arrow-down.png";
 
-export default function BookModal({ closeModal, setAdd, setShowMenu, getBooks }) {
+export default function BookModal({
+  closeModal,
+  setAdd,
+  setShowMenu,
+  getBooks
+}) {
+  const [openColor, setOpenColor] = useState(false);
+
   const formRef = useRef();
   const navigate = useNavigate();
+
+
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +35,8 @@ export default function BookModal({ closeModal, setAdd, setShowMenu, getBooks })
         rating: formRef.current.rating.value,
         order: formRef.current.order.value,
         finished: formRef.current.finished.value,
+        color: formRef.current.color.value,
+        room: formRef.current.room.value,
       })
       .then(getBooks)
       .catch((error) => {
@@ -92,7 +104,24 @@ export default function BookModal({ closeModal, setAdd, setShowMenu, getBooks })
           </label>
           <label className="book-modal__label">
             Colour
-            <BookColor/>
+        
+            <select className="color__container" id="color">
+
+                <option className="color__text">Leather (Default)</option>
+                <option className="color__text">Purple</option>
+                <option className="color__text">Blue</option>
+                <option className="color__text">Pink</option>
+                <option className="color__text">Turquoise</option>
+                
+              
+            </select>
+          </label>
+          <label className="book-modal__label">
+            Room
+            <select className="color__container" id="room">
+                <option className="color__text">_ _ _ _ _ _ _ _ _ _ _</option>
+                <option className="color__text">Unread</option>     
+            </select>
           </label>
           <label className="book-modal__label book-modal__label-finished">
             Finished
@@ -119,6 +148,13 @@ export default function BookModal({ closeModal, setAdd, setShowMenu, getBooks })
             </button>
           </section>
         </form>
+        <div
+          className={` color__modal ${
+            openColor ? "active" : "inactive"
+          }`}
+        >
+          {openColor && <BookColor id="color" setOpenColor={setOpenColor}/>}
+        </div>
       </section>
     </main>
   );

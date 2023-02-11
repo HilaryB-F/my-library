@@ -3,7 +3,7 @@ import Menu from "../../assets/icons/menu.png";
 import Dropdown from "../menu/menu";
 import { useState, useRef, useEffect } from "react";
 
-export default function Header({book, setActive, active}) {
+export default function Header({book, setActive, active, setBookColor, getBooks}) {
   const [showMenu, setShowMenu] = useState(false);
 
   const menuRef = useRef();
@@ -41,7 +41,7 @@ export default function Header({book, setActive, active}) {
             <img className="header__nav--menu" src={Menu} alt="Menu" />
           </div>
           <div className={`menu__dropdown ${showMenu ? "active" : "inactive"}`}>
-            <Dropdown setShowMenu={setShowMenu} book ={book} setActive={setActive}/>
+            <Dropdown setShowMenu={setShowMenu} book ={book} setActive={setActive} setBookColor={setBookColor} getBooks={getBooks}/>
           </div>
         </section>
       </nav>

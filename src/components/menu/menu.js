@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Bookdrop from "../book-drop/book-drop";
 import ViewDrop from "../view-drop/ViewDrop";
 
-export default function Menu({setShowMenu, book, setActive}) {
+export default function Menu({setShowMenu, book, setActive, setBookColor, getBooks}) {
   const [add, setAdd] = useState(false);
   const [addView, setAddView] = useState(false);
   let addRef = useRef();
@@ -36,7 +36,7 @@ export default function Menu({setShowMenu, book, setActive}) {
             Add
           </div>
           <div className={`add-book__down ${add ? "active" : "inactive"}`}>
-        {add && <Bookdrop setAdd={setAdd} setShowMenu={setShowMenu} setView={setAddView} />}
+        {add && <Bookdrop setAdd={setAdd} setShowMenu={setShowMenu} setView={setAddView} setBookColor={setBookColor} getBooks={getBooks} />}
       </div>
         </section>
         <hr></hr>

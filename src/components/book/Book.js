@@ -50,8 +50,8 @@ export default function Book({ book, bookId }) {
                 alt="details"
                 className="main__image-zebra"
               />
-            );}
-            else if (image === "http://localhost:8080/dino.png") {
+            );
+          } else if (image === "http://localhost:8080/dino.png") {
             return (
               <img
                 key={v4()}
@@ -59,8 +59,8 @@ export default function Book({ book, bookId }) {
                 alt="details"
                 className="main__image-dino"
               />
-            );}
-            else if (image) {
+            );
+          } else if (image) {
             return (
               <img
                 key={v4()}
@@ -69,6 +69,30 @@ export default function Book({ book, bookId }) {
                 className="main__image"
               />
             );
+          }else if (books.color === "Purple"){
+            return(
+                <div className="main__slot-purple" id={`${books.id}`} key={v4()}>
+                  {books.title}
+                </div>
+            )
+          }else if (books.color === "Blue"){
+            return(
+                <div className="main__slot-blue" id={`${books.id}`} key={v4()}>
+                  {books.title}
+                </div>
+            )
+          }else if (books.color === "Pink"){
+            return(
+                <div className="main__slot-pink" id={`${books.id}`} key={v4()}>
+                  {books.title}
+                </div>
+            )
+          }else if (books.color === "Turquoise"){
+            return(
+                <div className="main__slot-turquoise" id={`${books.id}`} key={v4()}>
+                  {books.title}
+                </div>
+            )
           }
           return (
             <main ref={addRef} key={v4()}>
@@ -79,6 +103,7 @@ export default function Book({ book, bookId }) {
                   setSelectedBookId(books.id);
                 }}
               >
+                {" "}
                 <div className="main__slot" id={`${books.id}`}>
                   {books.title}
                 </div>
