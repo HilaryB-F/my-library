@@ -71,27 +71,71 @@ export default function Book({ book, bookId }) {
             );
           }else if (books.color === "Purple"){
             return(
-                <div className="main__slot-purple" id={`${books.id}`} key={v4()}>
+              <main ref={addRef} key={v4()}>
+              <div
+                className="clicked__trigger "
+                onClick={() => {
+                  setClickedBook(!clickedBook);
+                  setSelectedBookId(books.id);
+                }}
+              >
+                {" "}
+                <div className="main__slot-purple" id={`${books.id}`}>
                   {books.title}
                 </div>
+              </div>
+            </main>
             )
           }else if (books.color === "Blue"){
             return(
-                <div className="main__slot-blue" id={`${books.id}`} key={v4()}>
+              <main ref={addRef} key={v4()}>
+              <div
+                className="clicked__trigger "
+                onClick={() => {
+                  setClickedBook(!clickedBook);
+                  setSelectedBookId(books.id);
+                }}
+              >
+                {" "}
+                <div className="main__slot-blue" id={`${books.id}`}>
                   {books.title}
                 </div>
+              </div>
+            </main>
             )
           }else if (books.color === "Pink"){
             return(
-                <div className="main__slot-pink" id={`${books.id}`} key={v4()}>
+              <main ref={addRef} key={v4()}>
+              <div
+                className="clicked__trigger "
+                onClick={() => {
+                  setClickedBook(!clickedBook);
+                  setSelectedBookId(books.id);
+                }}
+              >
+                {" "}
+                <div className="main__slot-pink" id={`${books.id}`}>
                   {books.title}
                 </div>
+              </div>
+            </main>
             )
           }else if (books.color === "Turquoise"){
             return(
-                <div className="main__slot-turquoise" id={`${books.id}`} key={v4()}>
+              <main ref={addRef} key={v4()}>
+              <div
+                className="clicked__trigger "
+                onClick={() => {
+                  setClickedBook(!clickedBook);
+                  setSelectedBookId(books.id);
+                }}
+              >
+                {" "}
+                <div className="main__slot-turquoise" id={`${books.id}`}>
                   {books.title}
                 </div>
+              </div>
+            </main>
             )
           }
           return (

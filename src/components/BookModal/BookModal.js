@@ -2,9 +2,8 @@ import "./BookModal.scss";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Rating from "../rating/Rating";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { v4 } from "uuid";
-import BookColor from "../BookColor/BookColor";
 import Arrow from "../../assets/icons/arrow-down.png";
 
 export default function BookModal({
@@ -13,12 +12,9 @@ export default function BookModal({
   setShowMenu,
   getBooks
 }) {
-  const [openColor, setOpenColor] = useState(false);
 
   const formRef = useRef();
   const navigate = useNavigate();
-
-
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -148,13 +144,6 @@ export default function BookModal({
             </button>
           </section>
         </form>
-        <div
-          className={` color__modal ${
-            openColor ? "active" : "inactive"
-          }`}
-        >
-          {openColor && <BookColor id="color" setOpenColor={setOpenColor}/>}
-        </div>
       </section>
     </main>
   );
