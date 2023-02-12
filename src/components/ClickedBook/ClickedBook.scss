@@ -102,3 +102,18 @@
   transition: (500ms) ease;
 }
 }
+.edit{
+  &__dropdown.active {
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    transition: (500ms) ease;
+  }
+  
+  &__dropdown.inactive {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: (500ms) ease;
+  }
+  }

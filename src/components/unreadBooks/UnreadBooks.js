@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import ClickedBook from "../ClickedBook/ClickedBook";
 import { v4 } from "uuid";
 
-export default function UnreadBooks({book, bookId, bookColor}) {
+export default function UnreadBooks({book, bookId, getBooks}) {
     const [clickedBook, setClickedBook] = useState(false);
     const [selectedBookId, setSelectedBookId] = useState("");
   
@@ -24,7 +24,7 @@ export default function UnreadBooks({book, bookId, bookColor}) {
   
     const selectedBook = book.find((book) => book.id === selectedBookId);
     return (
-      <main className="main__shelf main__shelf-books">
+      <main className="main__shelf main__shelf-books" ref={addRef}>
         {book
           .filter((books) => {
             return books.id !== id;
@@ -70,7 +70,7 @@ export default function UnreadBooks({book, bookId, bookColor}) {
               );
             }else if( books.room === "Unread"){
             return (
-              <main ref={addRef} key={v4()}>
+              <main  key={v4()}>
                 <div
                   className="clicked__trigger "
                   onClick={() => {
@@ -87,7 +87,7 @@ export default function UnreadBooks({book, bookId, bookColor}) {
           } 
           })}
         <div className={`clicked__book ${clickedBook ? "active" : "inactive"}`}>
-          {clickedBook && <ClickedBook selectedBook={selectedBook} />}
+          {clickedBook && <ClickedBook selectedBook={selectedBook} getBooks={getBooks}/>}
         </div>
       </main>
     );

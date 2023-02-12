@@ -1,23 +1,23 @@
 @use "../../styles/partials/variables" as *;
 
-.book-modal {
+.edit {
   height: 100vh;
   width: 100vw;
 
   &__container {
     position: fixed;
-    top: 6rem;
-    left: -30rem;
+    top: 16rem;
+    left: 12rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: start;
     background-color: $green;
     border-radius: 10px;
     border: 2px solid $darkGreen;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     width: 34rem;
-    min-width: 340px;
-    min-height: 400px;
+    height:55rem;
     padding: 1rem;
     margin: auto;
   }
@@ -28,6 +28,9 @@
     width: 90%;
     margin: 0.5rem;
     padding-bottom: 1rem;
+  }
+  &__form{
+    margin-top:-2rem;
   }
 
   &__label {
@@ -94,14 +97,14 @@
       width:14.8rem;
     }
   }
-  &__add {
+  &__update {
     color: $brown;
     border: none;
     background-color: $green;
     font-weight: 400;
     font-size: 2.4rem;
     margin-top: 2rem;
-    margin-right: 1rem;
+    margin-right:-2rem;
     padding-left: 3rem;
     padding-right: 3rem;
     padding-top: 0.5rem;
@@ -146,7 +149,7 @@
   }
 }
 
-.buttons {
+.edit__buttons {
   display: flex;
   justify-content: space-between;
   width: 90%;
@@ -208,4 +211,3 @@
     transition: (500ms) ease;
   }
 }
-

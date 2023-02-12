@@ -5,9 +5,11 @@ import BookDecal from "../../assets/images/bookDecal.gif";
 import { FaHeart } from "react-icons/fa";
 import { useState } from "react";
 import Delete from "../Delete/Delete";
+import EditBook from "../EditBook/EditBooks";
 
-export default function ClickedBook({ selectedBook }) {
+export default function ClickedBook({ selectedBook, getBooks }) {
   const [openDelete, setOpenDelete] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
 
   const noNum = selectedBook.order;
   if (!noNum) {
@@ -62,7 +64,9 @@ export default function ClickedBook({ selectedBook }) {
             >
               Delete
             </h2>
-            <h2 className="clicked__buttons-text">Edit</h2>
+            <h2 className="clicked__buttons-text" onClick={() => {
+                setOpenEdit(!openEdit);
+              }}>Edit</h2>
           </section>
             <div
             className={`delete__dropdown ${openDelete ? "active" : "inactive"}`}
@@ -127,13 +131,19 @@ export default function ClickedBook({ selectedBook }) {
             >
               Delete
             </h2>
-            <h2 className="clicked__buttons-text">Edit</h2>
+            <h2 className="clicked__buttons-text"  onClick={() => {
+                setOpenEdit(!openEdit)}}>Edit</h2>
           </section>
           <div
             className={`delete__dropdown ${openDelete ? "active" : "inactive"}`}
           >
-            {openDelete && <Delete setOpenDelete={setOpenDelete} />}
+            {openDelete && <Delete setOpenDelete={setOpenDelete} selectedBook={selectedBook} getBooks={getBooks} />}
           </div>
+           <div
+           className={`edit__dropdown ${openEdit ? "active" : "inactive"}`}
+         >
+           {openEdit && <EditBook setOpenEdit={setOpenEdit} selectedBook={selectedBook} getBooks={getBooks}/>}
+         </div>
         </section>
       </main>
     );

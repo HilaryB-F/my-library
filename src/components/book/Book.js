@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import ClickedBook from "../ClickedBook/ClickedBook";
 import { v4 } from "uuid";
 
-export default function Book({ book, bookId }) {
+export default function Book({ book, bookId, getBooks }) {
   const [clickedBook, setClickedBook] = useState(false);
   const [selectedBookId, setSelectedBookId] = useState("");
 
@@ -157,7 +157,7 @@ export default function Book({ book, bookId }) {
         })}
       <div className={`clicked__book ${clickedBook ? "active" : "inactive"}`}>
         {clickedBook && (
-          <ClickedBook selectedBook={selectedBook} />
+          <ClickedBook selectedBook={selectedBook} getBooks={getBooks}/>
         )}
       </div>
     </main>
