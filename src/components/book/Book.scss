@@ -9,12 +9,12 @@
     border: 2px solid rgb(0, 0, 0, 0.1);
     writing-mode: tb-rl;
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 700;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: $yellow;
-    background-image: url("../../assets/images/leather.jpg");
+    color: #D6B81A;
+    background-image: url("../../assets/images/brown.png");
     border: 2px solid $brown;
     border-radius: 3px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -25,37 +25,31 @@
       border: 2px solid $yellow;
       transition: (100ms);
       cursor: default;
-
     }
 
     &-purple {
       @extend .main__slot;
-      background-color: $purple;
-      border: 2px solid $darkPurple;
-      background-image: none;
+      background-image: url("../../assets/images/purple.png");
+      border: 2px solid $brown;
+      color:#EBC500;
     }
     &-blue {
       @extend .main__slot;
-      background-image: none;
-      background-color: $blue;
+      background-image: url("../../assets/images/blue.png");
       border: 2px solid $darkBlue;
-      color:$brown;
-
+      
     }
     &-pink {
       @extend .main__slot;
-      background-image: none;   
-      background-color: $pink;
-      border: 2px solid $darkPink;
-      color:$brown;
-  
+      background-image: url("../../assets/images/pink.png");
+      border: 2px solid $brown;
+      color: $darkBlue;
     }
     &-turquoise {
       @extend .main__slot;
-      background-image: none;   
-      background-color: $turq;
-      border: 2.5px solid $darkTurq;
-      color:$brown;
+      background-image: url("../../assets/images/turq.png");
+      border: 2.5px solid $brown;
+      color: $brown;
     }
   }
 

@@ -20,7 +20,7 @@ export default function BookModal({
   const [openColor, setOpenColor] = useState(false);
   const [openRoom, setOpenRoom] = useState(false);
 
-  const [colorValue, setColorValue] = useState("Leather");
+  const [colorValue, setColorValue] = useState("Brown");
   const [roomValue, setRoomValue] = useState("My Library");
 
   const colorChange = (e) => {
@@ -29,7 +29,7 @@ export default function BookModal({
   const roomChange = (e) => {
     setRoomValue(e.target.value);
   };
-  
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
     setAdd(false);
@@ -63,14 +63,14 @@ export default function BookModal({
           onSubmit={handleOnSubmit}
           ref={formRef}
         >
-          <label className="book-modal__label">
+          {/* <label className="book-modal__label">
             Search
             <input
               className="book-modal__input book-modal__input-search"
               type="search"
               placeholder=" _ _ _ _ _ _ _ _ _ _ _ "
             ></input>
-          </label>
+          </label> */}
           <label className="book-modal__label">
             Title
             <input

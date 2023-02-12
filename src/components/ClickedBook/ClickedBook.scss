@@ -21,7 +21,6 @@
   &__decal {
     &-top {
       width: 80%;
-
     }
     &-bottom {
       width: 85%;
@@ -40,7 +39,6 @@
     text-align: center;
     width: 90%;
     margin: 1rem;
-
   }
 
   &__author {
@@ -56,12 +54,10 @@
   &__finished {
     margin: 0;
     font-weight: 400;
-
   }
-  &__order{
+  &__order {
     font-weight: 400;
     margin: 0;
-
   }
 
   &__radio {
@@ -71,4 +67,38 @@
   &__hearts {
     padding-left: 0.5rem;
   }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0;
+
+    &-text {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: -0.5rem;
+
+      &:hover{
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.delete{
+&__dropdown.active {
+  position: absolute;
+  opacity: 1;
+  visibility: visible;
+  transition: (500ms) ease;
+}
+
+&__dropdown.inactive {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: (500ms) ease;
+}
 }
