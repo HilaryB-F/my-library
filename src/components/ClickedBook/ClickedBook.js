@@ -71,7 +71,7 @@ export default function ClickedBook({ selectedBook, getBooks, clickedBook }) {
             <div
             className={`delete__dropdown ${openDelete ? "active" : "inactive"}`}
           >
-            {openDelete && <Delete />}
+            {openDelete && <Delete setOpenDelete={setOpenDelete} selectedBook={selectedBook} getBooks={getBooks} clickedBook={clickedBook}/>}
           </div>
         </section>
       </main>

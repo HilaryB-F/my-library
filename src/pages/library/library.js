@@ -13,6 +13,7 @@ export default function Library() {
   const { bookId } = useParams();
 
   async function getNextBook() {
+    console.log('hiiii')
     try {
       const { data } = await axios.get(`http://localhost:8080/library`);
       setBook(data);

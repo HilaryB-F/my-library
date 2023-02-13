@@ -5,9 +5,9 @@
   width: 100vw;
 
   &__container {
-    position: fixed;
-    top: 19rem;
-    left: 11.3rem;
+    position: absolute;
+    top: -26rem;
+    left: -17rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -17,7 +17,7 @@
     border: 2px solid $darkGreen;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     width: 34rem;
-    height:55rem;
+    height:52rem;
     padding: 1rem;
     margin: auto;
   }
