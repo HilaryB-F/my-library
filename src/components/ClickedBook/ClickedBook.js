@@ -7,7 +7,7 @@ import { useState } from "react";
 import Delete from "../Delete/Delete";
 import EditBook from "../EditBook/EditBooks";
 
-export default function ClickedBook({ selectedBook, getBooks }) {
+export default function ClickedBook({ selectedBook, getBooks, clickedBook }) {
   const [openDelete, setOpenDelete] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
 
@@ -137,12 +137,12 @@ export default function ClickedBook({ selectedBook, getBooks }) {
           <div
             className={`delete__dropdown ${openDelete ? "active" : "inactive"}`}
           >
-            {openDelete && <Delete setOpenDelete={setOpenDelete} selectedBook={selectedBook} getBooks={getBooks} />}
+            {openDelete && <Delete setOpenDelete={setOpenDelete} selectedBook={selectedBook} getBooks={getBooks} clickedBook={clickedBook}/>}
           </div>
            <div
            className={`edit__dropdown ${openEdit ? "active" : "inactive"}`}
          >
-           {openEdit && <EditBook setOpenEdit={setOpenEdit} selectedBook={selectedBook} getBooks={getBooks}/>}
+           {openEdit && <EditBook setOpenEdit={setOpenEdit} selectedBook={selectedBook} getBooks={getBooks} />}
          </div>
         </section>
       </main>

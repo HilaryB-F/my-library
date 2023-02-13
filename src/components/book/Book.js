@@ -157,7 +157,7 @@ export default function Book({ book, bookId, getBooks }) {
         })}
       <div className={`clicked__book ${clickedBook ? "active" : "inactive"}`}>
         {clickedBook && (
-          <ClickedBook selectedBook={selectedBook} getBooks={getBooks}/>
+          <ClickedBook selectedBook={selectedBook} getBooks={getBooks} clickedBook={setClickedBook}/>
         )}
       </div>
     </main>

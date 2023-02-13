@@ -6,8 +6,8 @@
 
   &__container {
     position: fixed;
-    top: 16rem;
-    left: 12rem;
+    top: 19rem;
+    left: 11.3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -174,7 +174,7 @@
   transition: color (300ms) ease;
   cursor: pointer;
 }
-.color {
+.edit-color {
   &__container {
     background-color: $lightOlive;
     border-left: 2px solid $darkGreen;

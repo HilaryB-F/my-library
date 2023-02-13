@@ -3,8 +3,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import EditRating from "../EditRating/EditRating";
 import Arrow from "../../assets/icons/arrow-down.png";
-import ColorModal from "../ColorModal/ColorModal";
-import RoomModal from "../RoomModal/RoomModal";
+import EditColorModal from "../EditColorModal/EditColorModal";
+import EditRoomModal from "../EditRoomModal/EditRoomModal";
 import { useRef, useState } from "react";
 import { v4 } from "uuid";
 
@@ -66,8 +66,7 @@ export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
       console.log(error, "Error");
     });
     navigate("/library");
-    setOpenEdit(false)
-
+    setOpenEdit(false);
   };
   return (
     <main className="edit__background">
@@ -186,12 +185,12 @@ export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
           </section>
         </form>
         <div
-          className={`color-modal__dropdown ${
+          className={`edit-color-modal__dropdown ${
             openColor ? "active" : "inactive"
           }`}
         >
           {openColor && (
-            <ColorModal
+            <EditColorModal
               setColorValue={setColorValue}
               setOpenColor={setOpenColor}
               selectedBook={selectedBook}
@@ -199,10 +198,10 @@ export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
           )}
         </div>
         <div
-          className={`room-modal__dropdown ${openRoom ? "active" : "inactive"}`}
+          className={`edit-room-modal__dropdown ${openRoom ? "active" : "inactive"}`}
         >
           {openRoom && (
-            <RoomModal setRoomValue={setRoomValue} setOpenRoom={setOpenRoom} />
+            <EditRoomModal setRoomValue={setRoomValue} setOpenRoom={setOpenRoom} />
           )}
         </div>
       </section>

@@ -27,9 +27,9 @@ export default function Library() {
 
 
   return (
-    <>
+    <main className="library">
       <Header book={book} getBooks={getNextBook} setActive ={setActive} active={active} />
       <Bookshelf book={book} bookId={bookId} active={active} getBooks={getNextBook} />
-    </>
+    </main>
   );
 }
