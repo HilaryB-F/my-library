@@ -2,10 +2,14 @@ import "./Book.scss";
 import { useState, useEffect, useRef } from "react";
 import ClickedBook from "../ClickedBook/ClickedBook";
 import { v4 } from "uuid";
+import Delete from "../Delete/Delete";
 
 export default function Book({ book, bookId, getBooks }) {
   const [clickedBook, setClickedBook] = useState(false);
   const [selectedBookId, setSelectedBookId] = useState("");
+  const [openDelete, setOpenDelete] = useState(false);
+
+  
 
   let addRef = useRef();
   let id = bookId;
@@ -40,6 +44,11 @@ export default function Book({ book, bookId, getBooks }) {
                 src={books.image}
                 alt="details"
                 className="main__image-ladder"
+                onClick={() => {
+                setOpenDelete(!openDelete);
+                setSelectedBookId(books.id);
+
+              }}
               />
             );
           } else if (image === "http://localhost:8080/zebra.png") {
@@ -49,6 +58,11 @@ export default function Book({ book, bookId, getBooks }) {
                 src={books.image}
                 alt="details"
                 className="main__image-zebra"
+                onClick={() => {
+                  setOpenDelete(!openDelete);
+                  setSelectedBookId(books.id);
+
+                }}
               />
             );
           } else if (image === "http://localhost:8080/dino.png") {
@@ -58,6 +72,11 @@ export default function Book({ book, bookId, getBooks }) {
                 src={books.image}
                 alt="details"
                 className="main__image-dino"
+                onClick={() => {
+                  setOpenDelete(!openDelete);
+                  setSelectedBookId(books.id);
+
+                }}
               />
             );
           } else if (image) {
@@ -67,6 +86,11 @@ export default function Book({ book, bookId, getBooks }) {
                 src={books.image}
                 alt="details"
                 className="main__image"
+                onClick={() => {
+                  setOpenDelete(!openDelete);
+                  setSelectedBookId(books.id);
+
+                }}
               />
             );
           } else if (books.color === "Purple") {
@@ -160,6 +184,11 @@ export default function Book({ book, bookId, getBooks }) {
           <ClickedBook selectedBook={selectedBook} getBooks={getBooks} clickedBook={setClickedBook}/>
         )}
       </div>
+      <div
+            className={`delete__dropdown ${openDelete ? "active" : "inactive"}`}
+          >
+            {openDelete && <Delete setOpenDelete={setOpenDelete} selectedBook={selectedBook} getBooks={getBooks} clickedBook={clickedBook}/>}
+          </div>
     </main>
   );
 }

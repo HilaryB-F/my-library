@@ -9,7 +9,6 @@ export default function Delete({
   clickedBook,
 }) {
   const id = selectedBook.id;
-  console.log(id);
 
   const deleteBook = (e) => {
     e.preventDefault();
@@ -20,7 +19,7 @@ export default function Delete({
         console.log(error, "Error");
       });
     setOpenDelete(false);
-    clickedBook(false);
+    if (clickedBook){clickedBook(false)};
   };
 
   return (
