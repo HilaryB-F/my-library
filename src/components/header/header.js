@@ -2,6 +2,7 @@ import "./header.scss";
 import Menu from "../../assets/icons/menu.png";
 import Dropdown from "../menu/menu";
 import { useState, useRef, useEffect } from "react";
+import ClickedBook from "../ClickedBook/ClickedBook";
 
 export default function Header({
   book,
@@ -11,15 +12,19 @@ export default function Header({
   getBooks,
 }) {
   const [showMenu, setShowMenu] = useState(false);
+  const [clickedBook, setClickedBook] = useState(false);
+  const [selectedBookId, setSelectedBookId] = useState("");
 
   const [filterSearch, setFilterSearch] = useState([]);
+
+  const selectedBook = book.find((book) => book.id === selectedBookId);
 
   const menuRef = useRef();
   useEffect(() => {
     let handler = (event) => {
       if (!menuRef.current.contains(event.target)) {
         setShowMenu(false);
-        // setFilterSearch([]);
+        setClickedBook(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -32,15 +37,15 @@ export default function Header({
   const handleFilter = (e) => {
     const searchWord = e.target.value;
     const newFilter = book.filter((value) => {
-      if (!value.title){
-        return (null);
+      if (!value.title) {
+        return null;
       }
       return value.title.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
       setFilterSearch([]);
-    }  else {
+    } else {
       setFilterSearch(newFilter);
     }
   };
@@ -60,7 +65,15 @@ export default function Header({
           <div className="search__container">
             {filterSearch.slice(0, 7).map((item) => {
               return (
-                <h4 key={item.id} className="search__text">
+                <h4
+                  key={item.id}
+                  className="search__text"
+                  onClick={() => {
+                    setClickedBook(!clickedBook);
+                    setSelectedBookId(item.id);
+                    setFilterSearch([]);
+                  }}
+                >
                   {item.title}
                 </h4>
               );
@@ -87,6 +100,15 @@ export default function Header({
           </div>
         </section>
       </nav>
+      <div className={`clicked__book ${clickedBook ? "active" : "inactive"}`}>
+        {clickedBook && (
+          <ClickedBook
+            selectedBook={selectedBook}
+            getBooks={getBooks}
+            clickedBook={setClickedBook}
+          />
+        )}
+      </div>
     </header>
   );
 }

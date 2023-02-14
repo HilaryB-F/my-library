@@ -2,7 +2,6 @@ import "./Book.scss";
 import { useState, useEffect, useRef } from "react";
 import ClickedBook from "../ClickedBook/ClickedBook";
 import { v4 } from "uuid";
-import Delete from "../Delete/Delete";
 import DecorDelete from "../DecorDelete/DecorDelete";
 
 export default function Book({ book, bookId, getBooks }) {
@@ -68,7 +67,7 @@ export default function Book({ book, bookId, getBooks }) {
               <img
                 key={v4()}
                 src={books.image}
-                alt="details"
+                alt="Dinosaur Statue"
                 className="main__image-dino"
                 onClick={() => {
                   setOpenDecorDelete(!openDecorDelete);
@@ -81,7 +80,7 @@ export default function Book({ book, bookId, getBooks }) {
               <img
                 key={v4()}
                 src={books.image}
-                alt="details"
+                alt="Decor"
                 className="main__image"
                 onClick={() => {
                   setOpenDecorDelete(!openDecorDelete);

@@ -103,5 +103,10 @@
     margin:0.5rem;
     padding-bottom:1rem;
     border-bottom:1px dotted $darkGreen;
+
+    &:hover{
+      cursor: pointer;
+      color:$darkGreen;
+    }
 }
 }
