@@ -84,10 +84,10 @@ export default function UnreadBooks({book, bookId, getBooks}) {
                 </div>
               </main>
             );
-          } 
+          } return (null)
           })}
         <div className={`clicked__book ${clickedBook ? "active" : "inactive"}`}>
-          {clickedBook && <ClickedBook selectedBook={selectedBook} getBooks={getBooks}/>}
+          {clickedBook && <ClickedBook selectedBook={selectedBook} getBooks={getBooks} clickedBook={setClickedBook}/>}
         </div>
       </main>
     );

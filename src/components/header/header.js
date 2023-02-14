@@ -64,7 +64,7 @@ export default function Header({
     <header className="header__container" >
       {active === "All" && <h1 className="header__title">My Library</h1>}
       {active === "Unread" && <h1 className="header__title">Unread</h1>}
-      <nav className="header__nav">
+      <nav className="header__nav" ref={menuRef}>
         {filterSearch.length === 0 ? (
           <img src={SearchIcon} alt="Search Icon" className="search__icon" />
         ) : (
@@ -80,7 +80,7 @@ export default function Header({
           type="text"
           placeholder="Search..."
           onChange={handleFilter}
-          ref={menuRef}
+          
           value={searchEntered}
         />
         {filterSearch.length !== 0 && (

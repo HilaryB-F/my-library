@@ -3,10 +3,11 @@
 .book-modal {
   height: 100vh;
   width: 100vw;
+  z-index: 10;
 
   &__container {
-    position: fixed;
-    top: 6rem;
+    position: absolute;
+    top: 10rem;
     left: -30rem;
     display: flex;
     flex-direction: column;
@@ -16,8 +17,6 @@
     border: 2px solid $darkGreen;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     width: 34rem;
-    min-width: 340px;
-    min-height: 400px;
     padding: 1rem;
     margin: auto;
   }

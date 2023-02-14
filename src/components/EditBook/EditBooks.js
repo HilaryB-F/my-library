@@ -1,16 +1,15 @@
 import "./EditBooks.scss";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import EditRating from "../EditRating/EditRating";
 import Arrow from "../../assets/icons/arrow-down.png";
 import EditColorModal from "../EditColorModal/EditColorModal";
 import EditRoomModal from "../EditRoomModal/EditRoomModal";
 import { useRef, useState } from "react";
-import { v4 } from "uuid";
+
 
 export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
   const formRef = useRef();
-  const navigate = useNavigate();
 
   const [openColor, setOpenColor] = useState(false);
   const [openRoom, setOpenRoom] = useState(false);
@@ -67,7 +66,6 @@ export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
       .catch((error) => {
         console.log(error, "Error");
       });
-    // navigate("/library");
     setOpenEdit(false);
   };
   return (
