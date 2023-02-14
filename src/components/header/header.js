@@ -23,12 +23,12 @@ export default function Header({
   const selectedBook = book.find((book) => book.id === selectedBookId);
 
   const menuRef = useRef();
-  const searchRef = useRef();
   useEffect(() => {
     let handler = (event) => {
       if (!menuRef.current.contains(event.target)) {
         setShowMenu(false);
         setClickedBook(false);
+        setFilterSearch([])
       }
     };
     document.addEventListener("mousedown", handler);
@@ -41,6 +41,7 @@ export default function Header({
   const handleFilter = (e) => {
     const searchWord = e.target.value;
     setWordEntered(searchWord);
+
     const newFilter = book.filter((value) => {
       if (!value.title) {
         return null;
@@ -54,12 +55,13 @@ export default function Header({
       setFilterSearch(newFilter);
     }
   };
+
   const clearSearch = () => {
     setFilterSearch([]);
     setWordEntered("");
   };
   return (
-    <header className="header__container">
+    <header className="header__container" >
       {active === "All" && <h1 className="header__title">My Library</h1>}
       {active === "Unread" && <h1 className="header__title">Unread</h1>}
       <nav className="header__nav">
@@ -78,7 +80,7 @@ export default function Header({
           type="text"
           placeholder="Search..."
           onChange={handleFilter}
-          ref={searchRef}
+          ref={menuRef}
           value={searchEntered}
         />
         {filterSearch.length !== 0 && (
@@ -93,6 +95,7 @@ export default function Header({
                     setSelectedBookId(item.id);
                     setFilterSearch([]);
                     setWordEntered("");
+                    
                   }}
                 >
                   {item.title}

@@ -4,19 +4,30 @@ import ClickedBook from "../ClickedBook/ClickedBook";
 import { v4 } from "uuid";
 import DecorDelete from "../DecorDelete/DecorDelete";
 
-export default function Book({ book, bookId, getBooks }) {
+export default function Book({ book, bookId, getBooks, addRef }) {
   const [clickedBook, setClickedBook] = useState(false);
   const [selectedBookId, setSelectedBookId] = useState("");
   const [openDecorDelete, setOpenDecorDelete] = useState(false);
 
-  let addRef = useRef();
   let id = bookId;
-
 
   useEffect(() => {
     let handler = (e) => {
       if (!addRef.current.contains(e.target)) {
         setClickedBook(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
+
+  const imgRef = useRef();
+
+  useEffect(() => {
+    let handler = (e) => {
+      if (!imgRef.current.contains(e.target)) {
         setOpenDecorDelete(false);
       }
     };
@@ -29,7 +40,7 @@ export default function Book({ book, bookId, getBooks }) {
   const selectedBook = book.find((book) => book.id === selectedBookId);
 
   return (
-    <main className="main__shelf main__shelf-books" ref={addRef}>
+    <main className="main__shelf main__shelf-books">
       {book
         .filter((books) => {
           return books.id !== id;
@@ -175,7 +186,10 @@ export default function Book({ book, bookId, getBooks }) {
             </main>
           );
         })}
-      <div className={`clicked__book ${clickedBook ? "active" : "inactive"}`}>
+      <div
+        className={`clicked__book ${clickedBook ? "active" : "inactive"}`}
+        ref={addRef}
+      >
         {clickedBook && (
           <ClickedBook
             selectedBook={selectedBook}
@@ -188,6 +202,7 @@ export default function Book({ book, bookId, getBooks }) {
         className={`decor-delete__dropdown ${
           openDecorDelete ? "active" : "inactive"
         }`}
+        ref={imgRef}
       >
         {openDecorDelete && (
           <DecorDelete

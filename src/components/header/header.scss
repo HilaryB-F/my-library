@@ -6,7 +6,7 @@
 
   &__title {
     color: $brown;
-    font-size: 6.2rem;
+    font-size: 5.7rem;
     font-weight: 600;
     margin-left: 2rem;
     margin-bottom: 0;
@@ -23,8 +23,9 @@
     width: 520px;
     min-height: 10vh;
     height: 12rem;
-    min-width: 540px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
   &__nav {
     display: flex;
@@ -43,7 +44,7 @@
       width: 13rem;
       height: 3rem;
       padding-left: 3rem;
-      margin-top: 0.5rem;
+      margin-top: 1rem;
       box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
       outline: none;
 
@@ -54,7 +55,7 @@
     }
     &--menu {
       height: 8vh;
-      margin-top: -0.5rem;
+      margin-top: -1rem;
 
       &:hover {
         cursor: pointer;
@@ -90,7 +91,7 @@
     flex-direction:column;
     position:absolute;
     width:13rem;
-    top:2rem;
+    top:2.5rem;
     background-color: $lightOlive;
     border-radius: 10px;
     border-top-left-radius: 0px;
@@ -114,14 +115,15 @@
 &__icon{
   width:3.5rem;
   position: absolute;
+  top:0.7rem;
   z-index: 2;
 
   &-close{
     width:1.2rem;
     position: absolute;
     z-index: 2;
-    top:1.7rem;
-    left:33rem;
+    top:2.1rem;
+    margin-left:1rem;
     
     &:hover{
       cursor: pointer;

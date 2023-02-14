@@ -14,7 +14,7 @@ export default function ClickedBook({ selectedBook, getBooks, clickedBook }) {
   const noNum = selectedBook.order;
   if (!noNum) {
     return (
-      <main className="clicked__background" key={selectedBook.id}>
+      <main className="clicked__background" key={selectedBook.id} >
         <section className="clicked__container">
           <img src={Decal} alt="Book decal" className="clicked__decal-top" />
           <h1 className="clicked__title">{selectedBook.title}</h1>
@@ -78,7 +78,7 @@ export default function ClickedBook({ selectedBook, getBooks, clickedBook }) {
     );
   } else {
     return (
-      <main className="clicked__background" key={selectedBook.id}>
+      <main className="clicked__background" key={selectedBook.id} >
         <section className="clicked__container">
           <img src={Decal} alt="Book decal" className="clicked__decal-top" />
           <h1 className="clicked__title">{selectedBook.title}</h1>
