@@ -12,6 +12,7 @@ export default function Book({ book, bookId, getBooks }) {
   let addRef = useRef();
   let id = bookId;
 
+
   useEffect(() => {
     let handler = (e) => {
       if (!addRef.current.contains(e.target)) {

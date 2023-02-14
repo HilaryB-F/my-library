@@ -3,6 +3,8 @@ import Menu from "../../assets/icons/menu.png";
 import Dropdown from "../menu/menu";
 import { useState, useRef, useEffect } from "react";
 import ClickedBook from "../ClickedBook/ClickedBook";
+import Close from "../../assets/icons/close.png";
+import SearchIcon from "../../assets/icons/search.png";
 
 export default function Header({
   book,
@@ -14,12 +16,14 @@ export default function Header({
   const [showMenu, setShowMenu] = useState(false);
   const [clickedBook, setClickedBook] = useState(false);
   const [selectedBookId, setSelectedBookId] = useState("");
+  const [searchEntered, setWordEntered] = useState("");
 
   const [filterSearch, setFilterSearch] = useState([]);
 
   const selectedBook = book.find((book) => book.id === selectedBookId);
 
   const menuRef = useRef();
+  const searchRef = useRef();
   useEffect(() => {
     let handler = (event) => {
       if (!menuRef.current.contains(event.target)) {
@@ -36,6 +40,7 @@ export default function Header({
 
   const handleFilter = (e) => {
     const searchWord = e.target.value;
+    setWordEntered(searchWord);
     const newFilter = book.filter((value) => {
       if (!value.title) {
         return null;
@@ -49,17 +54,32 @@ export default function Header({
       setFilterSearch(newFilter);
     }
   };
-
+  const clearSearch = () => {
+    setFilterSearch([]);
+    setWordEntered("");
+  };
   return (
     <header className="header__container">
       {active === "All" && <h1 className="header__title">My Library</h1>}
       {active === "Unread" && <h1 className="header__title">Unread</h1>}
       <nav className="header__nav">
+        {filterSearch.length === 0 ? (
+          <img src={SearchIcon} alt="Search Icon" className="search__icon" />
+        ) : (
+          <img
+            src={Close}
+            alt="Close Icon"
+            className="search__icon-close"
+            onClick={clearSearch}
+          />
+        )}
         <input
           className="header__nav--search"
           type="text"
           placeholder="Search..."
           onChange={handleFilter}
+          ref={searchRef}
+          value={searchEntered}
         />
         {filterSearch.length !== 0 && (
           <div className="search__container">
@@ -72,6 +92,7 @@ export default function Header({
                     setClickedBook(!clickedBook);
                     setSelectedBookId(item.id);
                     setFilterSearch([]);
+                    setWordEntered("");
                   }}
                 >
                   {item.title}

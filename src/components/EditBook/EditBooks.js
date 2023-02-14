@@ -24,6 +24,8 @@ export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
   const [colorValue, setColorValue] = useState(selectedBook.color || "Brown");
   const [roomValue, setRoomValue] = useState(selectedBook.room || "My Library");
 
+  const id = selectedBook.id;
+
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -51,7 +53,7 @@ export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
 
     axios
       .put("http://localhost:8080/library", {
-        id: v4(),
+        id: id,
         title: formRef.current.title.value,
         author: formRef.current.author.value,
         series: formRef.current.series.value,
@@ -62,10 +64,10 @@ export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
         room: formRef.current.room.value,
       })
       .then(getBooks)
-    .catch((error) => {
-      console.log(error, "Error");
-    });
-    navigate("/library");
+      .catch((error) => {
+        console.log(error, "Error");
+      });
+    // navigate("/library");
     setOpenEdit(false);
   };
   return (
@@ -198,10 +200,15 @@ export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
           )}
         </div>
         <div
-          className={`edit-room-modal__dropdown ${openRoom ? "active" : "inactive"}`}
+          className={`edit-room-modal__dropdown ${
+            openRoom ? "active" : "inactive"
+          }`}
         >
           {openRoom && (
-            <EditRoomModal setRoomValue={setRoomValue} setOpenRoom={setOpenRoom} />
+            <EditRoomModal
+              setRoomValue={setRoomValue}
+              setOpenRoom={setOpenRoom}
+            />
           )}
         </div>
       </section>

@@ -31,12 +31,12 @@
     align-items: start;
 
     &--search {
+      color:$brown;
       background-color: $lightOlive;
       border: none;
       z-index: 1;
       border-radius: 40px;
       padding: 0.7rem;
-      background-image: url("../../assets/icons/search.png");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: 2% center;
@@ -50,6 +50,7 @@
       &:active {
         border: 1px, solid $darkGreen;
       }
+
     }
     &--menu {
       height: 8vh;
@@ -109,4 +110,23 @@
       color:$darkGreen;
     }
 }
+
+&__icon{
+  width:3.5rem;
+  position: absolute;
+  z-index: 2;
+
+  &-close{
+    width:1.2rem;
+    position: absolute;
+    z-index: 2;
+    top:1.7rem;
+    left:33rem;
+    
+    &:hover{
+      cursor: pointer;
+    }
+  }
 }
+}
+

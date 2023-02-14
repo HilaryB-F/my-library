@@ -1,6 +1,7 @@
 import "./Delete.scss";
 import axios from "axios";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Delete({
   setOpenDelete,
@@ -9,6 +10,8 @@ export default function Delete({
   clickedBook,
 }) {
   const id = selectedBook.id;
+
+  const navigate =useNavigate();
 
   const deleteBook = (e) => {
     e.preventDefault();
@@ -20,6 +23,7 @@ export default function Delete({
       });
     setOpenDelete(false);
     if (clickedBook){clickedBook(false)};
+      navigate("/library")
   };
 
   return (
