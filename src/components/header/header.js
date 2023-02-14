@@ -2,7 +2,6 @@ import "./header.scss";
 import Menu from "../../assets/icons/menu.png";
 import Dropdown from "../menu/menu";
 import { useState, useRef, useEffect } from "react";
-import { v4 } from "uuid";
 
 export default function Header({
   book,
@@ -13,13 +12,14 @@ export default function Header({
 }) {
   const [showMenu, setShowMenu] = useState(false);
 
-  const [search, setSearch] = useState("");
+  const [filterSearch, setFilterSearch] = useState([]);
 
   const menuRef = useRef();
   useEffect(() => {
     let handler = (event) => {
       if (!menuRef.current.contains(event.target)) {
         setShowMenu(false);
+        // setFilterSearch([]);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -29,7 +29,22 @@ export default function Header({
     };
   });
 
- 
+  const handleFilter = (e) => {
+    const searchWord = e.target.value;
+    const newFilter = book.filter((value) => {
+      if (!value.title){
+        return (null);
+      }
+      return value.title.toLowerCase().includes(searchWord.toLowerCase());
+    });
+
+    if (searchWord === "") {
+      setFilterSearch([]);
+    }  else {
+      setFilterSearch(newFilter);
+    }
+  };
+
   return (
     <header className="header__container">
       {active === "All" && <h1 className="header__title">My Library</h1>}
@@ -39,21 +54,19 @@ export default function Header({
           className="header__nav--search"
           type="text"
           placeholder="Search..."
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleFilter}
         />
-        {/* {book
-          .filter((item) => {
-            if (!search) {
-              console.log(item.title)
-              return item;
-            } else if (item.title.toLowerCase().includes(search.toLowerCase())) {
-              return item;
-            }
-          })
-          .map((item) => {
-            return <h4>{item.title}</h4>;
-          })} */}
-
+        {filterSearch.length !== 0 && (
+          <div className="search__container">
+            {filterSearch.slice(0, 7).map((item) => {
+              return (
+                <h4 key={item.id} className="search__text">
+                  {item.title}
+                </h4>
+              );
+            })}
+          </div>
+        )}
         <section className="menu__container" ref={menuRef}>
           <div
             className="menu__trigger"

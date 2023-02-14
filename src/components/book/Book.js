@@ -3,13 +3,12 @@ import { useState, useEffect, useRef } from "react";
 import ClickedBook from "../ClickedBook/ClickedBook";
 import { v4 } from "uuid";
 import Delete from "../Delete/Delete";
+import DecorDelete from "../DecorDelete/DecorDelete";
 
 export default function Book({ book, bookId, getBooks }) {
   const [clickedBook, setClickedBook] = useState(false);
   const [selectedBookId, setSelectedBookId] = useState("");
-  const [openDelete, setOpenDelete] = useState(false);
-
-  
+  const [openDecorDelete, setOpenDecorDelete] = useState(false);
 
   let addRef = useRef();
   let id = bookId;
@@ -18,6 +17,7 @@ export default function Book({ book, bookId, getBooks }) {
     let handler = (e) => {
       if (!addRef.current.contains(e.target)) {
         setClickedBook(false);
+        setOpenDecorDelete(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -45,10 +45,9 @@ export default function Book({ book, bookId, getBooks }) {
                 alt="details"
                 className="main__image-ladder"
                 onClick={() => {
-                setOpenDelete(!openDelete);
-                setSelectedBookId(books.id);
-
-              }}
+                  setOpenDecorDelete(!openDecorDelete);
+                  setSelectedBookId(books.id);
+                }}
               />
             );
           } else if (image === "http://localhost:8080/zebra.png") {
@@ -59,9 +58,8 @@ export default function Book({ book, bookId, getBooks }) {
                 alt="details"
                 className="main__image-zebra"
                 onClick={() => {
-                  setOpenDelete(!openDelete);
+                  setOpenDecorDelete(!openDecorDelete);
                   setSelectedBookId(books.id);
-
                 }}
               />
             );
@@ -73,9 +71,8 @@ export default function Book({ book, bookId, getBooks }) {
                 alt="details"
                 className="main__image-dino"
                 onClick={() => {
-                  setOpenDelete(!openDelete);
+                  setOpenDecorDelete(!openDecorDelete);
                   setSelectedBookId(books.id);
-
                 }}
               />
             );
@@ -87,15 +84,14 @@ export default function Book({ book, bookId, getBooks }) {
                 alt="details"
                 className="main__image"
                 onClick={() => {
-                  setOpenDelete(!openDelete);
+                  setOpenDecorDelete(!openDecorDelete);
                   setSelectedBookId(books.id);
-
                 }}
               />
             );
           } else if (books.color === "Purple") {
             return (
-              <main  key={v4()}>
+              <main key={v4()}>
                 <div
                   className="clicked__trigger "
                   onClick={() => {
@@ -112,7 +108,7 @@ export default function Book({ book, bookId, getBooks }) {
             );
           } else if (books.color === "Blue") {
             return (
-              <main  key={v4()}>
+              <main key={v4()}>
                 <div
                   className="clicked__trigger "
                   onClick={() => {
@@ -146,7 +142,7 @@ export default function Book({ book, bookId, getBooks }) {
             );
           } else if (books.color === "Turquoise") {
             return (
-              <main  key={v4()}>
+              <main key={v4()}>
                 <div
                   className="clicked__trigger "
                   onClick={() => {
@@ -163,7 +159,7 @@ export default function Book({ book, bookId, getBooks }) {
             );
           }
           return (
-            <main  key={v4()}>
+            <main key={v4()}>
               <div
                 className="clicked__trigger "
                 onClick={() => {
@@ -181,14 +177,27 @@ export default function Book({ book, bookId, getBooks }) {
         })}
       <div className={`clicked__book ${clickedBook ? "active" : "inactive"}`}>
         {clickedBook && (
-          <ClickedBook selectedBook={selectedBook} getBooks={getBooks} clickedBook={setClickedBook}/>
+          <ClickedBook
+            selectedBook={selectedBook}
+            getBooks={getBooks}
+            clickedBook={setClickedBook}
+          />
         )}
       </div>
       <div
-            className={`delete__dropdown ${openDelete ? "active" : "inactive"}`}
-          >
-            {openDelete && <Delete setOpenDelete={setOpenDelete} selectedBook={selectedBook} getBooks={getBooks} clickedBook={clickedBook}/>}
-          </div>
+        className={`decor-delete__dropdown ${
+          openDecorDelete ? "active" : "inactive"
+        }`}
+      >
+        {openDecorDelete && (
+          <DecorDelete
+            setOpenDelete={setOpenDecorDelete}
+            selectedBook={selectedBook}
+            getBooks={getBooks}
+            clickedBook={clickedBook}
+          />
+        )}
+      </div>
     </main>
   );
 }

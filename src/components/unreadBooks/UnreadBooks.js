@@ -32,7 +32,7 @@ export default function UnreadBooks({book, bookId, getBooks}) {
   
           .map((books) => {
             let image = books.image;
-            if (image === "http://localhost:8080/ladder.png") {
+            if (image === "http://localhost:8080/ladder.png" & books.room === "Unread") {
               return (
                 <img
                   key={v4()}
@@ -41,7 +41,7 @@ export default function UnreadBooks({book, bookId, getBooks}) {
                   className="main__image-ladder"
                 />
               );
-            } else if (image === "http://localhost:8080/zebra.png") {
+            } else if (image === "http://localhost:8080/zebra.png" & books.room === "Unread") {
               return (
                 <img
                   key={v4()}
@@ -50,7 +50,7 @@ export default function UnreadBooks({book, bookId, getBooks}) {
                   className="main__image-zebra"
                 />
               );}
-              else if (image === "http://localhost:8080/dino.png") {
+              else if (image === "http://localhost:8080/dino.png" & books.room === "Unread") {
               return (
                 <img
                   key={v4()}
@@ -59,7 +59,7 @@ export default function UnreadBooks({book, bookId, getBooks}) {
                   className="main__image-dino"
                 />
               );}
-              else if (image) {
+              else if (image & books.room === "Unread") {
               return (
                 <img
                   key={v4()}

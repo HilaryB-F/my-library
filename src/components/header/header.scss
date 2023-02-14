@@ -33,6 +33,7 @@
     &--search {
       background-color: $lightOlive;
       border: none;
+      z-index: 1;
       border-radius: 40px;
       padding: 0.7rem;
       background-image: url("../../assets/icons/search.png");
@@ -80,4 +81,27 @@
     transform: translateY(-2rem);
     transition: (500ms) ease;
   }
+}
+
+.search{
+  &__container{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    width:13rem;
+    top:2rem;
+    background-color: $lightOlive;
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+    padding-top:2rem;
+
+  }
+  &__text{
+    font-size: 1.3rem;
+    margin:0.5rem;
+    padding-bottom:1rem;
+    border-bottom:1px dotted $darkGreen;
+}
 }
