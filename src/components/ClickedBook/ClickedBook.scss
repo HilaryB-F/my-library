@@ -3,6 +3,10 @@
 .clicked {
   height: 100vh;
   width: 100vw;
+
+  &.searched{
+    width:10rem;
+  }
   &__container {
     position: absolute;
     display: flex;
@@ -15,8 +19,13 @@
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
     width: 350px;
     padding: 1rem;
-    left: 6.2rem;
-    top:10rem;
+    left: 5rem;
+    top:2rem;
+
+    &.searched{
+      left:-23rem;
+      top: 15rem;
+    }
   }
   &__decal {
     &-top {
@@ -84,6 +93,10 @@
       }
     }
   }
+  &__book-search{
+    position:absolute;
+  }
+
 }
 
 .delete{

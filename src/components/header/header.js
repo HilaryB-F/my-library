@@ -17,6 +17,7 @@ export default function Header({
   const [clickedBook, setClickedBook] = useState(false);
   const [selectedBookId, setSelectedBookId] = useState("");
   const [searchEntered, setWordEntered] = useState("");
+  const [searchedClick, setSearchedClick] = useState(false);
 
   const [filterSearch, setFilterSearch] = useState([]);
 
@@ -28,7 +29,6 @@ export default function Header({
       if (!menuRef.current.contains(event.target)) {
         setShowMenu(false);
         setClickedBook(false);
-        setFilterSearch([]);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -76,15 +76,15 @@ export default function Header({
     setWordEntered("");
   };
   return (
-    <header className="header__container" ref={menuRef}>
+    <header className="header__container">
       {active === "All" && <h1 className="header__title">My Library</h1>}
       {active === "Unread" && <h1 className="header__title">Unread</h1>}
-      <nav className="header__nav">
+
+      <nav className="header__nav" ref={bookRef}>
         {filterSearch.length === 0 ? (
           <img src={SearchIcon} alt="Search Icon" className="search__icon" />
         ) : (
           <img
-          ref={bookRef}
             src={Close}
             alt="Close Icon"
             className="search__icon-close"
@@ -99,10 +99,10 @@ export default function Header({
           value={searchEntered}
         />
         {filterSearch.length !== 0 && (
-          <div className="search__container" ref={bookRef}>
+          <div className="search__container">
             {filterSearch.slice(0, 7).map((item) => {
               return (
-                <h4
+                <div
                   key={item.id}
                   className="search__text"
                   onClick={() => {
@@ -110,10 +110,11 @@ export default function Header({
                     setSelectedBookId(item.id);
                     setFilterSearch([]);
                     setWordEntered("");
+                    setSearchedClick(true);
                   }}
                 >
                   {item.title}
-                </h4>
+                </div>
               );
             })}
           </div>
@@ -137,19 +138,21 @@ export default function Header({
             />
           </div>
         </section>
-      </nav>
-      <div
-        className={`clicked__book ${clickedBook ? "active" : "inactive"}`}
-        ref={bookRef}
+        <div
+        className={`clicked__book-search ${
+          clickedBook ? "active" : "inactive"
+        }`}
       >
         {clickedBook && (
           <ClickedBook
+            searchedClick={searchedClick}
             selectedBook={selectedBook}
             getBooks={getBooks}
             clickedBook={setClickedBook}
           />
         )}
       </div>
+      </nav>
     </header>
   );
 }

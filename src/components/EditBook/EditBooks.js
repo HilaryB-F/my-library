@@ -56,7 +56,7 @@ export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
         title: formRef.current.title.value,
         author: formRef.current.author.value,
         series: formRef.current.series.value,
-        rating: formRef.current.rating.value,
+        rating: formRef.current.rating.value || selectedBook.rating,
         order: formRef.current.order.value,
         finished: formRef.current.finished.value,
         color: formRef.current.color.value,

@@ -7,15 +7,20 @@ import { useState } from "react";
 import Delete from "../Delete/Delete";
 import EditBook from "../EditBook/EditBooks";
 
-export default function ClickedBook({ selectedBook, getBooks, clickedBook }) {
+export default function ClickedBook({
+  selectedBook,
+  getBooks,
+  clickedBook,
+  searchedClick,
+}) {
   const [openDelete, setOpenDelete] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
 
   const noNum = selectedBook.order;
   if (!noNum) {
     return (
-      <main className="clicked__background" key={selectedBook.id} >
-        <section className="clicked__container">
+      <main className={`clicked__background ${searchedClick ? "searched" : ""}`} key={selectedBook.id}>
+        <section className={`clicked__container ${searchedClick ? "searched" : ""}`}>
           <img src={Decal} alt="Book decal" className="clicked__decal-top" />
           <h1 className="clicked__title">{selectedBook.title}</h1>
           <h2 className="clicked__author">{selectedBook.author}</h2>
@@ -55,7 +60,7 @@ export default function ClickedBook({ selectedBook, getBooks, clickedBook }) {
             alt="Book decal"
             className="clicked__decal-bottom"
           />
-           <section className="clicked__buttons">
+          <section className="clicked__buttons">
             <h2
               className="clicked__buttons-text"
               onClick={() => {
@@ -64,22 +69,34 @@ export default function ClickedBook({ selectedBook, getBooks, clickedBook }) {
             >
               Delete
             </h2>
-            <h2 className="clicked__buttons-text" onClick={() => {
+            <h2
+              className="clicked__buttons-text"
+              onClick={() => {
                 setOpenEdit(!openEdit);
-              }}>Edit</h2>
+              }}
+            >
+              Edit
+            </h2>
           </section>
-            <div
+          <div
             className={`delete__dropdown ${openDelete ? "active" : "inactive"}`}
           >
-            {openDelete && <Delete setOpenDelete={setOpenDelete} selectedBook={selectedBook} getBooks={getBooks} clickedBook={clickedBook}/>}
+            {openDelete && (
+              <Delete
+                setOpenDelete={setOpenDelete}
+                selectedBook={selectedBook}
+                getBooks={getBooks}
+                clickedBook={clickedBook}
+              />
+            )}
           </div>
         </section>
       </main>
     );
   } else {
     return (
-      <main className="clicked__background" key={selectedBook.id} >
-        <section className="clicked__container">
+      <main className={`clicked__background ${searchedClick ? "searched" : ""}`} key={selectedBook.id}>
+        <section className={`clicked__container ${searchedClick ? "searched" : ""}`}>
           <img src={Decal} alt="Book decal" className="clicked__decal-top" />
           <h1 className="clicked__title">{selectedBook.title}</h1>
           <h2 className="clicked__series">
@@ -131,19 +148,36 @@ export default function ClickedBook({ selectedBook, getBooks, clickedBook }) {
             >
               Delete
             </h2>
-            <h2 className="clicked__buttons-text"  onClick={() => {
-                setOpenEdit(!openEdit)}}>Edit</h2>
+            <h2
+              className="clicked__buttons-text"
+              onClick={() => {
+                setOpenEdit(!openEdit);
+              }}
+            >
+              Edit
+            </h2>
           </section>
           <div
             className={`delete__dropdown ${openDelete ? "active" : "inactive"}`}
           >
-            {openDelete && <Delete setOpenDelete={setOpenDelete} selectedBook={selectedBook} getBooks={getBooks} clickedBook={clickedBook}/>}
+            {openDelete && (
+              <Delete
+                setOpenDelete={setOpenDelete}
+                selectedBook={selectedBook}
+                getBooks={getBooks}
+                clickedBook={clickedBook}
+              />
+            )}
           </div>
-           <div
-           className={`edit__dropdown ${openEdit ? "active" : "inactive"}`}
-         >
-           {openEdit && <EditBook setOpenEdit={setOpenEdit} selectedBook={selectedBook} getBooks={getBooks} />}
-         </div>
+          <div className={`edit__dropdown ${openEdit ? "active" : "inactive"}`}>
+            {openEdit && (
+              <EditBook
+                setOpenEdit={setOpenEdit}
+                selectedBook={selectedBook}
+                getBooks={getBooks}
+              />
+            )}
+          </div>
         </section>
       </main>
     );

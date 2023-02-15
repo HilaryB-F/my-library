@@ -4,7 +4,7 @@ import ClickedBook from "../ClickedBook/ClickedBook";
 import { v4 } from "uuid";
 import DecorDelete from "../DecorDelete/DecorDelete";
 
-export default function Book({ book, bookId, getBooks, addRef }) {
+export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
   const [clickedBook, setClickedBook] = useState(false);
   const [selectedBookId, setSelectedBookId] = useState("");
   const [openDecorDelete, setOpenDecorDelete] = useState(false);
@@ -192,6 +192,7 @@ export default function Book({ book, bookId, getBooks, addRef }) {
       >
         {clickedBook && (
           <ClickedBook
+          searchBook={searchBook}
             selectedBook={selectedBook}
             getBooks={getBooks}
             clickedBook={setClickedBook}
