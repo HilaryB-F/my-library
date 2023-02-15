@@ -74,7 +74,59 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
                 }}
               />
             );
-          } else if (image === "http://localhost:8080/dino.png") {
+          } else if (image === "http://localhost:8080/pothos2.png") {
+            return (
+              <img
+                key={v4()}
+                src={books.image}
+                alt="details"
+                className="main__image-hanging"
+                onClick={() => {
+                  setOpenDecorDelete(!openDecorDelete);
+                  setSelectedBookId(books.id);
+                }}
+              />
+            );
+          } 
+          else if (image === "http://localhost:8080/heart-leaf.png") {
+            return (
+              <img
+                key={v4()}
+                src={books.image}
+                alt="details"
+                className="main__image-hanging"
+                onClick={() => {
+                  setOpenDecorDelete(!openDecorDelete);
+                  setSelectedBookId(books.id);
+                }}
+              />
+            );}
+            else if (image === "http://localhost:8080/pearls.png") {
+            return (
+              <img
+                key={v4()}
+                src={books.image}
+                alt="details"
+                className="main__image-hanging"
+                onClick={() => {
+                  setOpenDecorDelete(!openDecorDelete);
+                  setSelectedBookId(books.id);
+                }}
+              />
+            );}
+            else if (image === "http://localhost:8080/pothos.png") {
+            return (
+              <img
+                key={v4()}
+                src={books.image}
+                alt="details"
+                className="main__image-pothos"
+                onClick={() => {
+                  setOpenDecorDelete(!openDecorDelete);
+                  setSelectedBookId(books.id);
+                }}
+              />
+            );}else if (image === "http://localhost:8080/dino.png") {
             return (
               <img
                 key={v4()}
@@ -192,7 +244,7 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
       >
         {clickedBook && (
           <ClickedBook
-          searchBook={searchBook}
+            searchBook={searchBook}
             selectedBook={selectedBook}
             getBooks={getBooks}
             clickedBook={setClickedBook}

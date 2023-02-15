@@ -1,20 +1,23 @@
 import "./ViewDrop.scss";
 
-
-export default function ViewDrop({ book, setActive }) {
-
-
+export default function ViewDrop({ setActive, setShowMenu }) {
   return (
     <main className="drop-view__container">
-      <h2  className="drop-view__text" onClick={() => {setActive("All")}}>
+      <h2
+        className="drop-view__text"
+        onClick={() => {
+          setActive("All");
+          setShowMenu(false);
+        }}
+      >
         Home
       </h2>
       <hr></hr>
       <h2
-        
         className="drop-view__text"
         onClick={() => {
-          setActive("Unread")
+          setActive("Unread");
+          setShowMenu(false);
         }}
       >
         Unread

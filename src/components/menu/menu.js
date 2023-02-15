@@ -67,7 +67,7 @@ export default function Menu({
             View
           </div>
           <div className={`add-view__drop ${addView ? "active" : "inactive"}`}>
-            {addView && <ViewDrop book={book} setActive={setActive} />}
+            {addView && <ViewDrop book={book} setActive={setActive} setShowMenu={setShowMenu} />}
           </div>
         </section>
       </section>
