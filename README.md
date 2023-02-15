@@ -20,7 +20,7 @@ Install My Library in few easy steps
 
 2. Head over to the backend API and follow the installation instructions for the backend 💫
 
-3. Install the dependencies in your front end 💫
+3. Install the dependencies in your front-end 💫
 
    Run `npm install` or `npm i` in your terminal
    ```
