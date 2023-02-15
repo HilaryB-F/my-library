@@ -18,7 +18,7 @@ Install My Library in few easy steps
 
 1. Clone or download this repo 💫
 
-2. Head over to the backend API and follow the installation instructions for the backend 💫
+2. Head over to the backend API [My Library back-end](https://github.com/HilaryB-F/my-library-api) 💫
 
 3. Install the dependencies in your front-end 💫
 
