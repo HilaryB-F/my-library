@@ -3,8 +3,12 @@
 .clicked {
   height: 100vh;
   width: 100vw;
+
+  &.searched{
+    width:10rem;
+  }
   &__container {
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,23 +19,26 @@
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
     width: 350px;
     padding: 1rem;
-    left: 20%;
-    top: 20%;
+    left: 5rem;
+    top:2rem;
+
+    &.searched{
+      left:-23rem;
+      top: 15rem;
+    }
   }
   &__decal {
     &-top {
-      width: 80%;
-
+      width: 90%;
     }
     &-bottom {
-      width: 85%;
+      width: 95%;
       padding-bottom: 1rem;
     }
 
     &-main {
       margin: 0;
       width: 50%;
-      z-index: -6;
     }
   }
   &__title {
@@ -40,7 +47,6 @@
     text-align: center;
     width: 90%;
     margin: 1rem;
-
   }
 
   &__author {
@@ -56,12 +62,10 @@
   &__finished {
     margin: 0;
     font-weight: 400;
-
   }
-  &__order{
+  &__order {
     font-weight: 400;
     margin: 0;
-
   }
 
   &__radio {
@@ -71,4 +75,58 @@
   &__hearts {
     padding-left: 0.5rem;
   }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0;
+
+    &-text {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: -0.5rem;
+
+      &:hover{
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+  &__book-search{
+    position:absolute;
+    z-index: 1;
+  }
+
 }
+
+.delete{
+&__dropdown.active {
+  position: absolute;
+  opacity: 1;
+  visibility: visible;
+  transition: (500ms) ease;
+}
+
+&__dropdown.inactive {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: (500ms) ease;
+}
+}
+.edit{
+  &__dropdown.active {
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    transition: (500ms) ease;
+  }
+  
+  &__dropdown.inactive {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: (500ms) ease;
+  }
+  }

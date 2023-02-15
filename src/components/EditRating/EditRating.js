@@ -1,17 +1,15 @@
-import "./Rating.scss";
+import './EditRating.scss'
 import { FaHeart } from "react-icons/fa";
 import React from "react";
 import { useState } from "react";
 
 
-export default function Rating() {
-  const [rating, setRating] = useState(null);
+export default function EditRating({selectedBook}) {
+  const [rating, setRating] = useState(selectedBook.rating);
   const [hover, setHover] = useState(null);
 
-
-
   return (
-    <div className ="rating__container">
+    <div className ="edit-rating__container">
       {[...Array(5)].map((heart, i) => {
         const ratingValue = i + 1;
         return (
@@ -20,7 +18,7 @@ export default function Rating() {
               className="rating"
               type="radio"
               name="rating"
-              value={ratingValue}
+              value={rating}
               onClick={() => setRating(ratingValue)}
             />
             <FaHeart 

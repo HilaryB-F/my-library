@@ -1,22 +1,23 @@
 @use "../../styles/partials/variables" as *;
 
-.book-modal {
+.edit {
   height: 100vh;
   width: 100vw;
-  z-index: 10;
 
   &__container {
     position: absolute;
-    top: 10rem;
-    left: -30rem;
+    top: -26rem;
+    left: -17rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: start;
     background-color: $green;
     border-radius: 10px;
     border: 2px solid $darkGreen;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     width: 34rem;
+    height:52rem;
     padding: 1rem;
     margin: auto;
   }
@@ -27,6 +28,9 @@
     width: 90%;
     margin: 0.5rem;
     padding-bottom: 1rem;
+  }
+  &__form{
+    margin-top:-2rem;
   }
 
   &__label {
@@ -92,19 +96,15 @@
       margin-left:10rem;
       width:14.8rem;
     }
-
-    &--invalid{
-      border:2px solid $red;
-    }
   }
-  &__add {
+  &__update {
     color: $brown;
     border: none;
     background-color: $green;
     font-weight: 400;
     font-size: 2.4rem;
     margin-top: 2rem;
-    margin-right: 1rem;
+    margin-right:-2rem;
     padding-left: 3rem;
     padding-right: 3rem;
     padding-top: 0.5rem;
@@ -149,7 +149,7 @@
   }
 }
 
-.buttons {
+.edit__buttons {
   display: flex;
   justify-content: space-between;
   width: 90%;
@@ -174,7 +174,7 @@
   transition: color (300ms) ease;
   cursor: pointer;
 }
-.color {
+.edit-color {
   &__container {
     background-color: $lightOlive;
     border-left: 2px solid $darkGreen;
@@ -210,9 +210,4 @@
     visibility: hidden;
     transition: (500ms) ease;
   }
-
-}
-.toast{
-  right:4rem !important;
-  top:60rem !important;
 }

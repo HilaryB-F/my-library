@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import ClickedBook from "../ClickedBook/ClickedBook";
 import { v4 } from "uuid";
 
-export default function UnreadBooks({book, bookId}) {
+export default function UnreadBooks({book, bookId, getBooks}) {
     const [clickedBook, setClickedBook] = useState(false);
     const [selectedBookId, setSelectedBookId] = useState("");
   
@@ -24,7 +24,7 @@ export default function UnreadBooks({book, bookId}) {
   
     const selectedBook = book.find((book) => book.id === selectedBookId);
     return (
-      <main className="main__shelf main__shelf-books">
+      <main className="main__shelf main__shelf-books" ref={addRef}>
         {book
           .filter((books) => {
             return books.id !== id;
@@ -32,7 +32,7 @@ export default function UnreadBooks({book, bookId}) {
   
           .map((books) => {
             let image = books.image;
-            if (image === "http://localhost:8080/ladder.png") {
+            if (image === "http://localhost:8080/ladder.png" & books.room === "Unread") {
               return (
                 <img
                   key={v4()}
@@ -41,7 +41,7 @@ export default function UnreadBooks({book, bookId}) {
                   className="main__image-ladder"
                 />
               );
-            } else if (image === "http://localhost:8080/zebra.png") {
+            } else if (image === "http://localhost:8080/zebra.png" & books.room === "Unread") {
               return (
                 <img
                   key={v4()}
@@ -50,7 +50,7 @@ export default function UnreadBooks({book, bookId}) {
                   className="main__image-zebra"
                 />
               );}
-              else if (image === "http://localhost:8080/dino.png") {
+              else if (image === "http://localhost:8080/dino.png" & books.room === "Unread") {
               return (
                 <img
                   key={v4()}
@@ -59,7 +59,7 @@ export default function UnreadBooks({book, bookId}) {
                   className="main__image-dino"
                 />
               );}
-              else if (image) {
+              else if (image & books.room === "Unread") {
               return (
                 <img
                   key={v4()}
@@ -70,7 +70,7 @@ export default function UnreadBooks({book, bookId}) {
               );
             }else if( books.room === "Unread"){
             return (
-              <main ref={addRef} key={v4()}>
+              <main  key={v4()}>
                 <div
                   className="clicked__trigger "
                   onClick={() => {
@@ -84,10 +84,10 @@ export default function UnreadBooks({book, bookId}) {
                 </div>
               </main>
             );
-          } 
+          } return (null)
           })}
         <div className={`clicked__book ${clickedBook ? "active" : "inactive"}`}>
-          {clickedBook && <ClickedBook selectedBook={selectedBook} />}
+          {clickedBook && <ClickedBook selectedBook={selectedBook} getBooks={getBooks} clickedBook={setClickedBook}/>}
         </div>
       </main>
     );

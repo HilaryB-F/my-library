@@ -2,32 +2,58 @@
 
 .main {
   &__slot {
-    display:flex;
+    display: flex;
     width: 3.2rem;
     height: 12.5vh;
     margin: 0.2rem;
     border: 2px solid rgb(0, 0, 0, 0.1);
     writing-mode: tb-rl;
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 700;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: $yellow;
-    background-image:url("../../assets/images/leather.jpg");
-    border:2px solid $brown;
+    color: #D6B81A;
+    background-image: url("../../assets/images/brown.png");
+    border: 2px solid $brown;
     border-radius: 3px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     text-overflow: ellipsis;
 
     &:hover {
-      border: 3px solid $yellow;
-      transition: (200ms);
+      border: 2px solid $yellow;
+      transition: (100ms);
+      cursor: default;
+    }
+
+    &-purple {
+      @extend .main__slot;
+      background-image: url("../../assets/images/purple.png");
+      border: 2px solid $brown;
+      color:#EBC500;
+    }
+    &-blue {
+      @extend .main__slot;
+      background-image: url("../../assets/images/blue.png");
+      border: 2px solid $darkBlue;
+      
+    }
+    &-pink {
+      @extend .main__slot;
+      background-image: url("../../assets/images/pink.png");
+      border: 2px solid $brown;
+      color: $darkBlue;
+    }
+    &-turquoise {
+      @extend .main__slot;
+      background-image: url("../../assets/images/turq.png");
+      border: 2.5px solid $brown;
+      color: $brown;
     }
   }
 
-  &__shelf-books{
+  &__shelf-books {
     display: flex;
     flex-wrap: wrap;
     background-color: $lightOlive;
@@ -36,45 +62,68 @@
     margin: 0.5rem;
   }
 
-  &__image{
-    height:10rem;
+  &__image {
+    height: 10rem;
+    margin-top:1rem;
 
-    &-ladder{
-      height:62rem;
-      width:15rem;
+    &-ladder {
+      height: 62rem;
+      width: 15rem;
       position: absolute;
-      left:38rem;
-      top:23rem;
+      top: 24rem;
+      margin-left:35rem;
     }
-    &-zebra{
-      width:10rem;
-      height:5rem;
-      margin-top: 4.8rem;
+    &-zebra {
+      width: 15rem;
+      height: 6rem;
+      margin-top: 6.3rem;
     }
-    &-dino{
-      width:15rem;
-      height:7rem;
+    &-dino {
+      width: 15rem;
+      height: 7rem;
       margin-top: 2.8rem;
+    }
+    &-hanging{
+       height:12rem;
+    }
+    &-pothos{
+      height:10rem;
+    margin-top:1rem;
+    margin-left:-3rem;
 
     }
   }
 }
 
-.clicked{
-
-  &__book.active{
-    position:absolute;
-    margin-left:1.5rem;
+.clicked {
+  &__book.active {
+    position: absolute;
+    margin-left: 1.5rem;
     opacity: 1;
     visibility: visible;
     transition: (500ms) ease;
   }
 
-  &__book.inactive{
-    position:absolute;
-    margin-left:1.5rem;
+  &__book.inactive {
+    position: absolute;
+    margin-left: 1.5rem;
     opacity: 0;
     visibility: hidden;
     transition: (500ms) ease;
   }
 }
+.decor-delete{
+  &__dropdown.active {
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    transition: (500ms) ease;
+  }
+  
+  &__dropdown.inactive {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: (500ms) ease;
+  }
+  }

@@ -2,16 +2,15 @@ import "./PlantModal.scss";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
   const [plant, setPlant] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     async function getPlant() {
       try {
-        const { data } = await axios.get(`http://localhost:8080/addPlants`);
+        const { data } = await axios.get(`http://localhost:8080/addPlants`, {
+        });
         setPlant(data);
       } catch (error) {
         console.log(error, "Error");
@@ -35,13 +34,13 @@ export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
                 onClick={() => {
                   axios
                     .post("http://localhost:8080/library", {
-                      image: `${plants.image}`,
+                      image: `${plants.image}`
                     })
                     .then(getBooks)
                     .catch((error) => {
                       console.log(error, "Error");
                     });
-
+                    
                   setAdd(false);
                   setShowMenu(false);
                 }}
