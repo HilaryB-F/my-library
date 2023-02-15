@@ -63,7 +63,7 @@ export default function BookModal({
   };
 
   const isFormValid = () => {
-    if (!title || !author || !series || !order) {
+    if (!title || !author || !order) {
       return false;
     }
     return true;
