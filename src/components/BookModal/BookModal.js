@@ -7,6 +7,8 @@ import ColorModal from "../ColorModal/ColorModal";
 import RoomModal from "../RoomModal/RoomModal";
 import { useRef, useState } from "react";
 import { v4 } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function BookModal({
   closeModal,
@@ -16,6 +18,36 @@ export default function BookModal({
 }) {
   const formRef = useRef();
   const navigate = useNavigate();
+
+  const notAdded = () =>
+    toast.error("😖 Oh No! You forgot something!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+    
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [series, setSeries] = useState("");
+  const [order, setOrder] = useState([]);
+
+  const handleTitle = (e) => {
+    setTitle(e.target.value);
+  };
+  const handleAuthor = (e) => {
+    setAuthor(e.target.value);
+  };
+  const handleSeries = (e) => {
+    setSeries(e.target.value);
+  };
+  const handleOrder = (e) => {
+    setOrder(e.target.value);
+  };
 
   const [openColor, setOpenColor] = useState(false);
   const [openRoom, setOpenRoom] = useState(false);
@@ -30,32 +62,45 @@ export default function BookModal({
     setRoomValue(e.target.value);
   };
 
+  const isFormValid = () => {
+    if (!title || !author || !series || !order) {
+      return false;
+    }
+    return true;
+  };
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    setAdd(false);
-    closeModal(false);
-    setShowMenu(false);
 
-    axios
-      .post("http://localhost:8080/library", {
-        id: v4(),
-        title: formRef.current.title.value,
-        author: formRef.current.author.value,
-        series: formRef.current.series.value,
-        rating: formRef.current.rating.value,
-        order: formRef.current.order.value,
-        finished: formRef.current.finished.value,
-        color: formRef.current.color.value,
-        room: formRef.current.room.value,
-      })
-      .then(getBooks)
-      .catch((error) => {
-        console.log(error, "Error");
-      });
-    navigate("/library");
+    if (isFormValid()) {
+      axios
+        .post("http://localhost:8080/library", {
+          id: v4(),
+          title: formRef.current.title.value,
+          author: formRef.current.author.value,
+          series: formRef.current.series.value,
+          rating: formRef.current.rating.value,
+          order: formRef.current.order.value,
+          finished: formRef.current.finished.value,
+          color: formRef.current.color.value,
+          room: formRef.current.room.value,
+        })
+        .then(getBooks)
+        .catch((error) => {
+          console.log(error, "Error");
+        });
+      navigate("/library");
+      setAdd(false);
+      closeModal(false);
+      setShowMenu(false);
+    } else {
+      return notAdded();
+    }
   };
   return (
     <main className="book-modal__background">
+        <ToastContainer className="toast" />
+
       <section className="book-modal__container">
         <header className="book-modal__header">Book</header>
         <form
@@ -74,6 +119,8 @@ export default function BookModal({
           <label className="book-modal__label">
             Title
             <input
+              value={title}
+              onChange={handleTitle}
               className="book-modal__input"
               type="text"
               placeholder="_ _ _ _ _ _ _ _ _ _ _ _"
@@ -83,6 +130,8 @@ export default function BookModal({
           <label className="book-modal__label">
             Author
             <input
+              value={author}
+              onChange={handleAuthor}
               className="book-modal__input"
               type="text"
               placeholder="_ _ _ _ _ _ _ _ _ _ _ _"
@@ -92,6 +141,8 @@ export default function BookModal({
           <label className="book-modal__label">
             Series
             <input
+              value={series}
+              onChange={handleSeries}
               className="book-modal__input"
               type="text"
               placeholder="_ _ _ _ _ _ _ _ _ _ _ _ "
@@ -101,6 +152,8 @@ export default function BookModal({
           <label className="book-modal__label">
             Book #
             <input
+              value={order}
+              onChange={handleOrder}
               className="book-modal__input"
               type="number"
               placeholder="_ _ _ _ _ _ _ _ _ _ _ _ "

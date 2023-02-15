@@ -4,7 +4,7 @@ import BookModal from "../BookModal/BookModal";
 import PlantModal from "../PlantModal/PlantModal";
 import DecorModal from "../DecorModal/DecorModal";
 
-export default function Bookdrop({ setAdd, setShowMenu, getBooks, setBookColor }) {
+export default function Bookdrop({ setAdd, setShowMenu, getBooks, setBookColor, book}) {
   const [openModal, setOpenModal] = useState(false);
   const [openPlantModal, setOpenPlantModal] = useState(false);
   const [openDecorModal, setOpenDecorModal] = useState(false);
@@ -55,6 +55,7 @@ export default function Bookdrop({ setAdd, setShowMenu, getBooks, setBookColor }
             setShowMenu={setShowMenu}
             getBooks={getBooks}
             setBookColor={setBookColor}
+            book={book}
           />
         )}
       </div>

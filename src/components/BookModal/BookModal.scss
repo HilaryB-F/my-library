@@ -92,6 +92,10 @@
       margin-left:10rem;
       width:14.8rem;
     }
+
+    &--invalid{
+      border:2px solid $red;
+    }
   }
   &__add {
     color: $brown;
@@ -206,5 +210,9 @@
     visibility: hidden;
     transition: (500ms) ease;
   }
-}
 
+}
+.toast{
+  right:4rem !important;
+  top:60rem !important;
+}

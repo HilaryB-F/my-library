@@ -3,7 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import Bookdrop from "../book-drop/book-drop";
 import ViewDrop from "../view-drop/ViewDrop";
 
-export default function Menu({setShowMenu, book, setActive, setBookColor, getBooks}) {
+export default function Menu({
+  setShowMenu,
+  book,
+  setActive,
+  setBookColor,
+  getBooks,
+}) {
   const [add, setAdd] = useState(false);
   const [addView, setAddView] = useState(false);
   let addRef = useRef();
@@ -11,7 +17,7 @@ export default function Menu({setShowMenu, book, setActive, setBookColor, getBoo
   useEffect(() => {
     let handler = (e) => {
       if (!addRef.current.contains(e.target)) {
-        setAdd(false)
+        setAdd(false);
         setAddView(false);
       }
     };
@@ -24,20 +30,28 @@ export default function Menu({setShowMenu, book, setActive, setBookColor, getBoo
   return (
     <>
       <section className="dropdown__container" ref={addRef}>
-        <section className="add-book__container" >
+        <section className="add-book__container">
           <div
             className="book__trigger dropdown__text"
             onClick={() => {
-              setAdd(!add)
-              setAddView(false)
-              ;
+              setAdd(!add);
+              setAddView(false);
             }}
           >
             Add
           </div>
           <div className={`add-book__down ${add ? "active" : "inactive"}`}>
-        {add && <Bookdrop setAdd={setAdd} setShowMenu={setShowMenu} setView={setAddView} setBookColor={setBookColor} getBooks={getBooks} />}
-      </div>
+            {add && (
+              <Bookdrop
+                setAdd={setAdd}
+                setShowMenu={setShowMenu}
+                setView={setAddView}
+                setBookColor={setBookColor}
+                getBooks={getBooks}
+                book={book}
+              />
+            )}
+          </div>
         </section>
         <hr></hr>
         <h2 className="dropdown__text">Theme</h2>
@@ -46,18 +60,17 @@ export default function Menu({setShowMenu, book, setActive, setBookColor, getBoo
           <div
             className="book__trigger dropdown__text"
             onClick={() => {
-              setAdd(false)
+              setAdd(false);
               setAddView(!addView);
             }}
           >
             View
           </div>
           <div className={`add-view__drop ${addView ? "active" : "inactive"}`}>
-        {addView && <ViewDrop book={book} setActive={setActive}/>}
-      </div>
+            {addView && <ViewDrop book={book} setActive={setActive} />}
+          </div>
         </section>
       </section>
-     
     </>
   );
 }

@@ -28,7 +28,22 @@ export default function Header({
       if (!menuRef.current.contains(event.target)) {
         setShowMenu(false);
         setClickedBook(false);
-        setFilterSearch([])
+        setFilterSearch([]);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
+
+  const bookRef = useRef();
+  useEffect(() => {
+    let handler = (event) => {
+      if (!bookRef.current.contains(event.target)) {
+        setShowMenu(false);
+        setClickedBook(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -61,14 +76,15 @@ export default function Header({
     setWordEntered("");
   };
   return (
-    <header className="header__container" >
+    <header className="header__container" ref={menuRef}>
       {active === "All" && <h1 className="header__title">My Library</h1>}
       {active === "Unread" && <h1 className="header__title">Unread</h1>}
-      <nav className="header__nav" ref={menuRef}>
+      <nav className="header__nav">
         {filterSearch.length === 0 ? (
           <img src={SearchIcon} alt="Search Icon" className="search__icon" />
         ) : (
           <img
+          ref={bookRef}
             src={Close}
             alt="Close Icon"
             className="search__icon-close"
@@ -80,11 +96,10 @@ export default function Header({
           type="text"
           placeholder="Search..."
           onChange={handleFilter}
-          
           value={searchEntered}
         />
         {filterSearch.length !== 0 && (
-          <div className="search__container">
+          <div className="search__container" ref={bookRef}>
             {filterSearch.slice(0, 7).map((item) => {
               return (
                 <h4
@@ -95,7 +110,6 @@ export default function Header({
                     setSelectedBookId(item.id);
                     setFilterSearch([]);
                     setWordEntered("");
-                    
                   }}
                 >
                   {item.title}
@@ -104,7 +118,7 @@ export default function Header({
             })}
           </div>
         )}
-        <section className="menu__container" ref={menuRef}>
+        <section className="menu__container">
           <div
             className="menu__trigger"
             onClick={() => {
@@ -124,7 +138,10 @@ export default function Header({
           </div>
         </section>
       </nav>
-      <div className={`clicked__book ${clickedBook ? "active" : "inactive"}`}>
+      <div
+        className={`clicked__book ${clickedBook ? "active" : "inactive"}`}
+        ref={bookRef}
+      >
         {clickedBook && (
           <ClickedBook
             selectedBook={selectedBook}
