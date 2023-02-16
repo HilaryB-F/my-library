@@ -1,12 +1,11 @@
 import "./EditBooks.scss";
 import axios from "axios";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import EditRating from "../EditRating/EditRating";
 import Arrow from "../../assets/icons/arrow-down.png";
 import EditColorModal from "../EditColorModal/EditColorModal";
 import EditRoomModal from "../EditRoomModal/EditRoomModal";
 import { useRef, useState } from "react";
-
 
 export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
   const formRef = useRef();

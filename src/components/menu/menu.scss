@@ -44,8 +44,8 @@ hr {
     &__down.active {
       position: absolute;
       opacity: 1;
-      left:-6.5rem;
-      top:7.1rem;
+      left: -6.5rem;
+      top: 7.1rem;
       visibility: visible;
       transform: translateY(-7rem);
       transition: (500ms) ease;
@@ -59,12 +59,12 @@ hr {
       transition: (500ms) ease;
     }
   }
-  &-view{
+  &-view {
     &__drop.active {
       position: absolute;
       opacity: 1;
-      left:-6.5rem;
-      top:7.1rem;
+      left: -6.5rem;
+      top: 7.1rem;
       visibility: visible;
       transform: translateY(-7rem);
       transition: (500ms) ease;

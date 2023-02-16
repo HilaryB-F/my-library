@@ -1,45 +1,43 @@
 @use "../../styles/partials/variables" as *;
 
 .decor-delete {
-    &__modal{
-        position:absolute;
-        top:3rem;
-        left:9.5rem;
-        display:flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        background-color: $lightBrown;
-        border-radius: 10px;
-        border: 2px solid $brown;
-        box-shadow: 2px 2px 5px rgba(214, 184, 26, 0.9);
-        width:30rem;
-        
-    }
-    &__button{
-        display: flex;
-        justify-content: space-around;
-    }
-    &__title{
-        font-weight: 700;
-        text-align: center;
-        border-bottom:2px solid $brown;
-        padding-bottom:1rem;
-        margin-bottom:0;
-    }
-    &__text{
-        font-size: 2.4rem;
-        font-weight: 600;
-        padding:3rem;
-        margin:0;
+  &__modal {
+    position: absolute;
+    top: 3rem;
+    left: 9.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: $lightBrown;
+    border-radius: 10px;
+    border: 2px solid $brown;
+    box-shadow: 2px 2px 5px rgba(214, 184, 26, 0.9);
+    width: 30rem;
+  }
+  &__button {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__title {
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 2px solid $brown;
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+  }
+  &__text {
+    font-size: 2.4rem;
+    font-weight: 600;
+    padding: 3rem;
+    margin: 0;
 
-        &-right{
-            border-left:2px solid $brown;
-        }
-
-        &:hover{
-            color:$yellow;
-            text-decoration: underline;
-        }
-
+    &-right {
+      border-left: 2px solid $brown;
     }
+
+    &:hover {
+      color: $yellow;
+      text-decoration: underline;
+    }
+  }
 }

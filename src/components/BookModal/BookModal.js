@@ -30,7 +30,7 @@ export default function BookModal({
       progress: undefined,
       theme: "colored",
     });
-    
+
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [series, setSeries] = useState("");
@@ -99,7 +99,7 @@ export default function BookModal({
   };
   return (
     <main className="book-modal__background">
-        <ToastContainer className="toast" />
+      <ToastContainer className="toast" />
 
       <section className="book-modal__container">
         <header className="book-modal__header">Book</header>
@@ -108,6 +108,7 @@ export default function BookModal({
           onSubmit={handleOnSubmit}
           ref={formRef}
         >
+          {/* Search bar for when I add a book API so that you can search for your book and it will auto fill the input fields below */}
           {/* <label className="book-modal__label">
             Search
             <input

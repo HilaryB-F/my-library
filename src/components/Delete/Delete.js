@@ -11,7 +11,7 @@ export default function Delete({
 }) {
   const id = selectedBook.id;
 
-  const navigate =useNavigate();
+  const navigate = useNavigate();
 
   const deleteBook = (e) => {
     e.preventDefault();
@@ -22,8 +22,10 @@ export default function Delete({
         console.log(error, "Error");
       });
     setOpenDelete(false);
-    if (clickedBook){clickedBook(false)};
-      navigate("/library")
+    if (clickedBook) {
+      clickedBook(false);
+    }
+    navigate("/library");
   };
 
   return (

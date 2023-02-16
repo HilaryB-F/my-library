@@ -87,8 +87,7 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
                 }}
               />
             );
-          } 
-          else if (image === "http://localhost:8080/heart-leaf.png") {
+          } else if (image === "http://localhost:8080/heart-leaf.png") {
             return (
               <img
                 key={v4()}
@@ -100,8 +99,8 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
                   setSelectedBookId(books.id);
                 }}
               />
-            );}
-            else if (image === "http://localhost:8080/pearls.png") {
+            );
+          } else if (image === "http://localhost:8080/pearls.png") {
             return (
               <img
                 key={v4()}
@@ -113,8 +112,8 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
                   setSelectedBookId(books.id);
                 }}
               />
-            );}
-            else if (image === "http://localhost:8080/pothos.png") {
+            );
+          } else if (image === "http://localhost:8080/pothos.png") {
             return (
               <img
                 key={v4()}
@@ -126,7 +125,8 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
                   setSelectedBookId(books.id);
                 }}
               />
-            );}else if (image === "http://localhost:8080/dino.png") {
+            );
+          } else if (image === "http://localhost:8080/dino.png") {
             return (
               <img
                 key={v4()}

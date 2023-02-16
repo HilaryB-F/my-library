@@ -4,7 +4,13 @@ import BookModal from "../BookModal/BookModal";
 import PlantModal from "../PlantModal/PlantModal";
 import DecorModal from "../DecorModal/DecorModal";
 
-export default function Bookdrop({ setAdd, setShowMenu, getBooks, setBookColor, book}) {
+export default function Bookdrop({
+  setAdd,
+  setShowMenu,
+  getBooks,
+  setBookColor,
+  book,
+}) {
   const [openModal, setOpenModal] = useState(false);
   const [openPlantModal, setOpenPlantModal] = useState(false);
   const [openDecorModal, setOpenDecorModal] = useState(false);
@@ -15,8 +21,8 @@ export default function Bookdrop({ setAdd, setShowMenu, getBooks, setBookColor, 
         className="drop__text"
         onClick={() => {
           setOpenModal(true);
-          setOpenPlantModal(false)
-          setOpenDecorModal(false)
+          setOpenPlantModal(false);
+          setOpenDecorModal(false);
         }}
       >
         Book
@@ -26,9 +32,8 @@ export default function Bookdrop({ setAdd, setShowMenu, getBooks, setBookColor, 
         className="drop__text"
         onClick={() => {
           setOpenPlantModal(true);
-          setOpenModal(false)
-          setOpenDecorModal(false)
-
+          setOpenModal(false);
+          setOpenDecorModal(false);
         }}
       >
         Plant
@@ -38,8 +43,8 @@ export default function Bookdrop({ setAdd, setShowMenu, getBooks, setBookColor, 
         className="drop__text"
         onClick={() => {
           setOpenDecorModal(true);
-          setOpenPlantModal(false)
-          setOpenModal(false)
+          setOpenPlantModal(false);
+          setOpenModal(false);
         }}
       >
         Decor
@@ -60,26 +65,28 @@ export default function Bookdrop({ setAdd, setShowMenu, getBooks, setBookColor, 
         )}
       </div>
       <div
-        className={`plant-modal__dropdown ${openPlantModal ? "active" : "inactive"}`}
+        className={`plant-modal__dropdown ${
+          openPlantModal ? "active" : "inactive"
+        }`}
       >
         {openPlantModal && (
           <PlantModal
             setAdd={setAdd}
             setShowMenu={setShowMenu}
             getBooks={getBooks}
-
           />
         )}
       </div>
       <div
-        className={`decor-modal__dropdown ${openDecorModal ? "active" : "inactive"}`}
+        className={`decor-modal__dropdown ${
+          openDecorModal ? "active" : "inactive"
+        }`}
       >
         {openDecorModal && (
           <DecorModal
             setAdd={setAdd}
             setShowMenu={setShowMenu}
             getBooks={getBooks}
-
           />
         )}
       </div>

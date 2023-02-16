@@ -44,8 +44,7 @@ export default function Header({
       if (!bookRef.current.contains(event.target)) {
         setShowMenu(false);
         setClickedBook(false);
-      setFilterSearch([])
-
+        setFilterSearch([]);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -58,7 +57,7 @@ export default function Header({
   const handleFilter = (e) => {
     const searchWord = e.target.value;
     setWordEntered(searchWord);
-    setShowMenu(false)
+    setShowMenu(false);
 
     const newFilter = book.filter((value) => {
       if (!value.title) {
@@ -98,9 +97,8 @@ export default function Header({
           className="header__nav--search"
           type="text"
           placeholder="Search..."
-          onChange={handleFilter}  
+          onChange={handleFilter}
           value={searchEntered}
-
         />
         {filterSearch.length !== 0 && (
           <div className="search__container">
@@ -143,19 +141,19 @@ export default function Header({
           </div>
         </section>
         <div
-        className={`clicked__book-search ${
-          clickedBook ? "active" : "inactive"
-        }`}
-      >
-        {clickedBook && (
-          <ClickedBook
-            searchedClick={searchedClick}
-            selectedBook={selectedBook}
-            getBooks={getBooks}
-            clickedBook={setClickedBook}
-          />
-        )}
-      </div>
+          className={`clicked__book-search ${
+            clickedBook ? "active" : "inactive"
+          }`}
+        >
+          {clickedBook && (
+            <ClickedBook
+              searchedClick={searchedClick}
+              selectedBook={selectedBook}
+              getBooks={getBooks}
+              clickedBook={setClickedBook}
+            />
+          )}
+        </div>
       </nav>
     </header>
   );

@@ -4,9 +4,6 @@ import HomePage from "./pages/Hompage/Homepage";
 import Library from "./pages/library/library";
 import NotFound from "./pages/NotFound/NotFound";
 
-
-
-
 function App() {
   return (
     <Router>

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
 export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
   const [decor, setDecor] = useState([]);
   const navigate = useNavigate();

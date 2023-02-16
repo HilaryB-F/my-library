@@ -17,7 +17,7 @@
     border: 2px solid $darkGreen;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     width: 34rem;
-    height:52rem;
+    height: 52rem;
     padding: 1rem;
     margin: auto;
   }
@@ -29,8 +29,8 @@
     margin: 0.5rem;
     padding-bottom: 1rem;
   }
-  &__form{
-    margin-top:-2rem;
+  &__form {
+    margin-top: -2rem;
   }
 
   &__label {
@@ -50,7 +50,7 @@
     }
   }
   &__input {
-    outline:none;
+    outline: none;
     font-size: 1.8rem;
     color: $brown;
     border: none;
@@ -75,26 +75,26 @@
       color: $brown;
       font-weight: 600;
     }
-    &-img{
-      display:flex;
-      justify-content:end ;
+    &-img {
+      display: flex;
+      justify-content: end;
       align-items: center;
-      width:22.1rem;
+      width: 22.1rem;
       background-color: $lightOlive;
       border-left: 2px solid $darkGreen;
-      padding:0.5rem;
+      padding: 0.5rem;
     }
-    &-color{
-      outline:none;
-      text-align:center;
-      margin-left:10rem;
-      width:14.8rem;
+    &-color {
+      outline: none;
+      text-align: center;
+      margin-left: 10rem;
+      width: 14.8rem;
     }
-    &-room{
-      outline:none;
-      text-align:center;
-      margin-left:10rem;
-      width:14.8rem;
+    &-room {
+      outline: none;
+      text-align: center;
+      margin-left: 10rem;
+      width: 14.8rem;
     }
   }
   &__update {
@@ -104,7 +104,7 @@
     font-weight: 400;
     font-size: 2.4rem;
     margin-top: 2rem;
-    margin-right:-2rem;
+    margin-right: -2rem;
     padding-left: 3rem;
     padding-right: 3rem;
     padding-top: 0.5rem;
@@ -134,18 +134,16 @@
       border-radius: 10px;
     }
   }
-  &__icon{
-    width:3rem;
-    margin-left:3rem;
-    margin-right:0.8rem;
+  &__icon {
+    width: 3rem;
+    margin-left: 3rem;
+    margin-right: 0.8rem;
   }
 
-  &__placeholder{
-
+  &__placeholder {
     font-size: 1.8rem;
     font-weight: 600;
-    margin:0;
-    
+    margin: 0;
   }
 }
 
@@ -179,14 +177,14 @@
     background-color: $lightOlive;
     border-left: 2px solid $darkGreen;
     width: 22.1rem;
-    padding:1rem;
+    padding: 1rem;
     font-size: 1.8rem;
-    color:$brown;
+    color: $brown;
     text-align: end;
   }
 
-  &__text{
-    padding:3rem;
+  &__text {
+    padding: 3rem;
   }
   &__image {
     height: 3rem;

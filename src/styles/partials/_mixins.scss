@@ -1,13 +1,14 @@
 @use "./variables" as *;
+//Prepared for if I decide to make this into a tablet and desktop app as well
 
 @mixin tablet {
-    @media screen and (min-width: $tablet-breakpoint) {
-      @content;
-    }
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
   }
-  
-  @mixin desktop {
-    @media screen and (min-width: $desktop-breakpoint) {
-      @content;
-    }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
   }
+}

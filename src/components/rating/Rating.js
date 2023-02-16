@@ -3,19 +3,16 @@ import { FaHeart } from "react-icons/fa";
 import React from "react";
 import { useState } from "react";
 
-
 export default function Rating() {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
 
-
-
   return (
-    <div className ="rating__container">
+    <div className="rating__container">
       {[...Array(5)].map((heart, i) => {
         const ratingValue = i + 1;
         return (
-          <label key={i} >
+          <label key={i}>
             <input
               className="rating"
               type="radio"
@@ -23,8 +20,7 @@ export default function Rating() {
               value={ratingValue}
               onClick={() => setRating(ratingValue)}
             />
-            <FaHeart 
-
+            <FaHeart
               className="heart"
               size={40}
               color={ratingValue <= (hover || rating) ? "#F84B4B" : "#4B1F19"}
@@ -32,7 +28,6 @@ export default function Rating() {
               onMouseLeave={() => setHover(null)}
             />
           </label>
-          
         );
       })}
     </div>

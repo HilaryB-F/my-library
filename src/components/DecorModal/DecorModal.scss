@@ -4,7 +4,7 @@
   &__container {
     margin: auto;
     display: flex;
-    position:fixed;
+    position: fixed;
     top: 6rem;
     left: -35rem;
     flex-direction: column;
@@ -37,18 +37,16 @@
     border-radius: 3px;
     margin: 0.2rem;
 
-    &:hover{
+    &:hover {
       border-radius: 10px;
       background-color: $lightOlive;
       box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-      transition:(200ms) ease-out;
+      transition: (200ms) ease-out;
     }
 
-    &:active{
+    &:active {
       background-color: $darkGreen;
       box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     }
-
-  
   }
 }

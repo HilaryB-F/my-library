@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #D6B81A;
+    color: #d6b81a;
     background-image: url("../../assets/images/brown.png");
     border: 2px solid $brown;
     border-radius: 3px;
@@ -31,13 +31,12 @@
       @extend .main__slot;
       background-image: url("../../assets/images/purple.png");
       border: 2px solid $brown;
-      color:#EBC500;
+      color: #ebc500;
     }
     &-blue {
       @extend .main__slot;
       background-image: url("../../assets/images/blue.png");
       border: 2px solid $darkBlue;
-      
     }
     &-pink {
       @extend .main__slot;
@@ -64,14 +63,14 @@
 
   &__image {
     height: 10rem;
-    margin-top:1rem;
+    margin-top: 1rem;
 
     &-ladder {
       height: 62rem;
       width: 15rem;
       position: absolute;
       top: 24rem;
-      margin-left:35rem;
+      margin-left: 35rem;
     }
     &-zebra {
       width: 15rem;
@@ -83,14 +82,13 @@
       height: 7rem;
       margin-top: 2.8rem;
     }
-    &-hanging{
-       height:12rem;
+    &-hanging {
+      height: 12rem;
     }
-    &-pothos{
-      height:10rem;
-    margin-top:1rem;
-    margin-left:-3rem;
-
+    &-pothos {
+      height: 10rem;
+      margin-top: 1rem;
+      margin-left: -3rem;
     }
   }
 }
@@ -112,18 +110,18 @@
     transition: (500ms) ease;
   }
 }
-.decor-delete{
+.decor-delete {
   &__dropdown.active {
     position: absolute;
     opacity: 1;
     visibility: visible;
     transition: (500ms) ease;
   }
-  
+
   &__dropdown.inactive {
     position: absolute;
     opacity: 0;
     visibility: hidden;
     transition: (500ms) ease;
   }
-  }
+}

@@ -1,32 +1,30 @@
 @use "../../styles/partials/variables" as *;
 
 .delete {
-    &__modal{
-        display:flex;
-        justify-content: space-evenly;
-        background-color: $green;
-        border-radius: 10px;
-        border: 2px solid $darkGreen;
-        box-shadow: 2px 2px 5px rgba(214, 184, 26, 0.9);
-        width:30rem;
-        
+  &__modal {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: $green;
+    border-radius: 10px;
+    border: 2px solid $darkGreen;
+    box-shadow: 2px 2px 5px rgba(214, 184, 26, 0.9);
+    width: 30rem;
+  }
+  &__text {
+    font-size: 2.4rem;
+    font-weight: 600;
+    padding: 3rem;
+    margin: 0;
+
+    &-right {
+      border-left: 2px solid $darkGreen;
+      margin-left: 1rem;
+      padding-right: 2rem;
     }
-    &__text{
-        font-size: 2.4rem;
-        font-weight: 600;
-        padding:3rem;
-        margin:0;
 
-        &-right{
-            border-left:2px solid $darkGreen;
-            margin-left:1rem;
-            padding-right:2rem;
-        }
-
-        &:hover{
-            color:$darkGreen;
-            text-decoration: underline;
-        }
-
+    &:hover {
+      color: $darkGreen;
+      text-decoration: underline;
     }
+  }
 }

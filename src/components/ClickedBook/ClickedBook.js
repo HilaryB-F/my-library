@@ -19,8 +19,13 @@ export default function ClickedBook({
   const noNum = selectedBook.order;
   if (!noNum) {
     return (
-      <main className={`clicked__background ${searchedClick ? "searched" : ""}`} key={selectedBook.id}>
-        <section className={`clicked__container ${searchedClick ? "searched" : ""}`}>
+      <main
+        className={`clicked__background ${searchedClick ? "searched" : ""}`}
+        key={selectedBook.id}
+      >
+        <section
+          className={`clicked__container ${searchedClick ? "searched" : ""}`}
+        >
           <img src={Decal} alt="Book decal" className="clicked__decal-top" />
           <h1 className="clicked__title">{selectedBook.title}</h1>
           <h2 className="clicked__author">{selectedBook.author}</h2>
@@ -95,8 +100,13 @@ export default function ClickedBook({
     );
   } else {
     return (
-      <main className={`clicked__background ${searchedClick ? "searched" : ""}`} key={selectedBook.id}>
-        <section className={`clicked__container ${searchedClick ? "searched" : ""}`}>
+      <main
+        className={`clicked__background ${searchedClick ? "searched" : ""}`}
+        key={selectedBook.id}
+      >
+        <section
+          className={`clicked__container ${searchedClick ? "searched" : ""}`}
+        >
           <img src={Decal} alt="Book decal" className="clicked__decal-top" />
           <h1 className="clicked__title">{selectedBook.title}</h1>
           <h2 className="clicked__series">
