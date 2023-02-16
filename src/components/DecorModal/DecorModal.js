@@ -13,7 +13,7 @@ export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
   useEffect(() => {
     async function getDecor() {
       try {
-        const { data } = await axios.get(REACT_APP_URL +"/addDecor");
+        const { data } = await axios.get(REACT_APP_URL + "/addDecor");
         setDecor(data);
       } catch (error) {
         console.log(error, "Error");

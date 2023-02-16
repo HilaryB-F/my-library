@@ -15,7 +15,7 @@ export default function Delete({
   const deleteBook = (e) => {
     e.preventDefault();
     axios
-      .delete(REACT_APP_URL + "/addDecor", { data: { id } })
+      .delete(REACT_APP_URL + "/library", { data: { id } })
       .then(getBooks)
       .catch((error) => {
         console.log(error, "Error");
