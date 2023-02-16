@@ -2,6 +2,8 @@ import "./Delete.scss";
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+const URL = process.env.URL 
+
 
 export default function Delete({
   setOpenDelete,
@@ -16,7 +18,7 @@ export default function Delete({
   const deleteBook = (e) => {
     e.preventDefault();
     axios
-      .delete(`http://localhost:8080/library`, { data: { id } })
+      .delete(URL + "/library", { data: { id } })
       .then(getBooks)
       .catch((error) => {
         console.log(error, "Error");

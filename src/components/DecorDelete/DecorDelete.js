@@ -1,6 +1,8 @@
 import "./DecorDelete.scss";
 import axios from "axios";
 import React from "react";
+const URL = process.env.URL 
+
 
 export default function Delete({
   setOpenDelete,
@@ -13,7 +15,7 @@ export default function Delete({
   const deleteBook = (e) => {
     e.preventDefault();
     axios
-      .delete(`http://localhost:8080/library`, { data: { id } })
+      .delete(URL + "/addDecor", { data: { id } })
       .then(getBooks)
       .catch((error) => {
         console.log(error, "Error");

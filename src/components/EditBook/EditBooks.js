@@ -6,6 +6,8 @@ import Arrow from "../../assets/icons/arrow-down.png";
 import EditColorModal from "../EditColorModal/EditColorModal";
 import EditRoomModal from "../EditRoomModal/EditRoomModal";
 import { useRef, useState } from "react";
+const URL = process.env.URL 
+
 
 
 export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
@@ -51,7 +53,7 @@ export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
     e.preventDefault();
 
     axios
-      .put("http://localhost:8080/library", {
+      .put(URL + "/library", {
         id: id,
         title: formRef.current.title.value,
         author: formRef.current.author.value,

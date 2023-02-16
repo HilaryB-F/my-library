@@ -2,6 +2,8 @@ import "./DecorModal.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+  const URL = process.env.URL 
+
 
 
 export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
@@ -11,7 +13,7 @@ export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
   useEffect(() => {
     async function getDecor() {
       try {
-        const { data } = await axios.get(`http://localhost:8080/addDecor`);
+        const { data } = await axios.get(URL +"/addDecor");
         setDecor(data);
       } catch (error) {
         console.log(error, "Error");
@@ -34,7 +36,7 @@ export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
                 key={decor.id}
                 onClick={() => {
                   axios
-                    .post("http://localhost:8080/library", {
+                    .post(URL + "/library", {
                       image: `${decor.image}`,
                     })
                     .then(getBooks)

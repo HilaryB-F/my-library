@@ -9,7 +9,7 @@ export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
   useEffect(() => {
     async function getPlant() {
       try {
-        const { data } = await axios.get(`http://localhost:8080/addPlants`, {
+        const { data } = await axios.get(URL + "/addPlants", {
         });
         setPlant(data);
       } catch (error) {
@@ -33,7 +33,7 @@ export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
                 key={plants.id}
                 onClick={() => {
                   axios
-                    .post("http://localhost:8080/library", {
+                    .post(URL + "/library", {
                       image: `${plants.image}`
                     })
                     .then(getBooks)
