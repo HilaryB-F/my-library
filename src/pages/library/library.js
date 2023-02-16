@@ -16,7 +16,7 @@ export default function Library() {
 
   async function getNextBook() {
     try {
-      const { data } = await axios.get(REACT_APP_URL);
+      const { data } = await axios.get(REACT_APP_URL + "/library");
       setBook(data);
     } catch (error) {
       console.log(error, "Error");
