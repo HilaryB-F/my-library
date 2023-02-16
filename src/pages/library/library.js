@@ -4,7 +4,8 @@ import Bookshelf from "../../components/bookshelf/bookshelf";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-const URL = process.env.URL 
+const REACT_APP_URL = process.env.REACT_APP_URL
+
 
 export default function Library() {
   const [book, setBook] = useState([]);
@@ -15,7 +16,7 @@ export default function Library() {
 
   async function getNextBook() {
     try {
-      const { data } = await axios.get(URL);
+      const { data } = await axios.get(REACT_APP_URL);
       setBook(data);
     } catch (error) {
       console.log(error, "Error");
