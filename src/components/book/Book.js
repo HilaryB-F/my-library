@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import ClickedBook from "../ClickedBook/ClickedBook";
 import { v4 } from "uuid";
 import DecorDelete from "../DecorDelete/DecorDelete";
-const URL = process.env.URL;
+const REACT_APP_URL = process.env.REACT_APP_URL;
 
 export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
   const [clickedBook, setClickedBook] = useState(false);
@@ -49,7 +49,7 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
 
         .map((books) => {
           let image = books.image;
-          if (image === URL + "/ladder.png") {
+          if (image === REACT_APP_URL + "/ladder.png") {
             return (
               <img
                 key={v4()}
@@ -62,7 +62,7 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
                 }}
               />
             );
-          } else if (image === URL + "/zebra.png") {
+          } else if (image === REACT_APP_URL + "/zebra.png") {
             return (
               <img
                 key={v4()}
@@ -75,7 +75,7 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
                 }}
               />
             );
-          } else if (image === URL + "/pothos2.png") {
+          } else if (image === REACT_APP_URL + "/pothos2.png") {
             return (
               <img
                 key={v4()}
@@ -89,7 +89,7 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
               />
             );
           } 
-          else if (image === URL + "/heart-leaf.png") {
+          else if (image === REACT_APP_URL + "/heart-leaf.png") {
             return (
               <img
                 key={v4()}
@@ -102,7 +102,7 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
                 }}
               />
             );}
-            else if (image === URL + "/pearls.png") {
+            else if (image === REACT_APP_URL + "/pearls.png") {
             return (
               <img
                 key={v4()}
@@ -115,7 +115,7 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
                 }}
               />
             );}
-            else if (image === URL + "/pothos.png") {
+            else if (image === REACT_APP_URL + "/pothos.png") {
             return (
               <img
                 key={v4()}
@@ -127,7 +127,7 @@ export default function Book({ book, bookId, getBooks, addRef, searchBook }) {
                   setSelectedBookId(books.id);
                 }}
               />
-            );}else if (image === URL + "/dino.png") {
+            );}else if (image === REACT_APP_URL + "/dino.png") {
             return (
               <img
                 key={v4()}

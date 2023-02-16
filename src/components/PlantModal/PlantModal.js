@@ -2,6 +2,8 @@ import "./PlantModal.scss";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+const REACT_APP_URL = process.env.REACT_APP_URL 
+
 
 export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
   const [plant, setPlant] = useState([]);
@@ -9,7 +11,7 @@ export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
   useEffect(() => {
     async function getPlant() {
       try {
-        const { data } = await axios.get(URL + "/addPlants", {
+        const { data } = await axios.get(REACT_APP_URL + "/addPlants", {
         });
         setPlant(data);
       } catch (error) {
@@ -33,7 +35,7 @@ export default function PlantModal({ setAdd, setShowMenu, getBooks }) {
                 key={plants.id}
                 onClick={() => {
                   axios
-                    .post(URL + "/library", {
+                    .post(REACT_APP_URL + "/library", {
                       image: `${plants.image}`
                     })
                     .then(getBooks)

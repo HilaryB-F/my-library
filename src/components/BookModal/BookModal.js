@@ -9,7 +9,7 @@ import { useRef, useState } from "react";
 import { v4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const URL = process.env.URL;
+const REACT_APP_URL = process.env.REACT_APP_URL;
 
 export default function BookModal({
   closeModal,
@@ -75,7 +75,7 @@ export default function BookModal({
 
     if (isFormValid()) {
       axios
-        .post(URL + "/library", {
+        .post(REACT_APP_URL + "/library", {
           id: v4(),
           title: formRef.current.title.value,
           author: formRef.current.author.value,

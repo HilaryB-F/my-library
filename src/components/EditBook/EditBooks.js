@@ -6,7 +6,7 @@ import Arrow from "../../assets/icons/arrow-down.png";
 import EditColorModal from "../EditColorModal/EditColorModal";
 import EditRoomModal from "../EditRoomModal/EditRoomModal";
 import { useRef, useState } from "react";
-const URL = process.env.URL 
+const REACT_APP_URL = process.env.REACT_APP_URL 
 
 
 
@@ -53,7 +53,7 @@ export default function EditBook({ setOpenEdit, getBooks, selectedBook }) {
     e.preventDefault();
 
     axios
-      .put(URL + "/library", {
+      .put(REACT_APP_URL + "/library", {
         id: id,
         title: formRef.current.title.value,
         author: formRef.current.author.value,
