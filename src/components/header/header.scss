@@ -53,9 +53,9 @@
 
     }
     &--menu {
-      height: 4rem;
+      height: 5rem;
       align-self: center;
-      margin-right: -3.5rem;
+      margin-right: -2rem;
       margin-top: 0.5rem;
 
       &:hover {
@@ -119,7 +119,7 @@
 &__icon{
   width:3.5rem;
   position: absolute;
-  top:0.7rem;
+  top:1rem;
   z-index: 3;
 
   &-close{
