@@ -11,7 +11,7 @@
         border-radius:10px;
         border:1px solid $darkGreen;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        width:480px;
+        width:360px;
         padding:2rem;
         min-height:30vh;
         min-width:350px;
@@ -20,7 +20,7 @@
 
     }
     &__title{
-        font-size:3.6rem;
+        font-size:2.4rem;
         font-weight: 700;
         margin:0;
     }
@@ -30,9 +30,11 @@
     }
     &__quote{
         margin-bottom:0;
+        font-size: 1.2rem;
+
     }
     &__author{
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         font-weight:600;
         margin-bottom:3rem;
         margin-top:0.5rem;

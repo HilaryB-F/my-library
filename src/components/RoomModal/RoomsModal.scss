@@ -13,10 +13,11 @@
   
     &__text {
       font-size: 1.8rem;
+      font-weight: 600;
       border: 2px solid $darkGreen;
       border-bottom: none;
       margin: 0;
-      padding: 1rem;
+      padding: 0.5rem;
       padding-right:2.5rem;
   
       &-bottom {

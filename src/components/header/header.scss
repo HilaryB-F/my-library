@@ -6,12 +6,10 @@
 
   &__title {
     color: $brown;
-    font-size: 5.7rem;
+    font-size: 3.4rem;
     font-weight: 600;
-    margin-left: 2rem;
-    margin-bottom: 0;
-    margin-top: 0;
-    align-self: flex-end;
+    margin-left: 0.5rem;
+    align-self: center;
   }
 
   &__container {
@@ -20,9 +18,9 @@
     justify-content: space-between;
     background-color: $olive;
     border: 2px solid $darkGreen;
-    width: 520px;
-    min-height: 10vh;
-    height: 12rem;
+    width: 100vw;
+    min-width: 372px;
+    height: 60px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -32,7 +30,8 @@
     align-items: start;
 
     &--search {
-      color:$brown;
+      align-self: center;
+      color: $brown;
       background-color: $lightOlive;
       border: none;
       z-index: 2;
@@ -44,7 +43,7 @@
       width: 13rem;
       height: 3rem;
       padding-left: 3rem;
-      margin-top: 1rem;
+      margin-right: -3rem;
       box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
       outline: none;
 
@@ -54,8 +53,10 @@
 
     }
     &--menu {
-      height: 8vh;
-      margin-top: -1rem;
+      height: 4rem;
+      align-self: center;
+      margin-right: -3.5rem;
+      margin-top: 0.5rem;
 
       &:hover {
         cursor: pointer;
