@@ -1,6 +1,7 @@
 import "./ClickedBook.scss";
 import Decal from "../../assets/images/decal.png";
 import Decal2 from "../../assets/images/decal2.png";
+import ArrowDown from "../../assets/icons/arrow-back.png";
 import BookDecal from "../../assets/images/bookDecal.gif";
 import { FaHeart } from "react-icons/fa";
 import { useState } from "react";
@@ -21,7 +22,12 @@ export default function ClickedBook({
     return (
       <main className={`clicked__background ${searchedClick ? "searched" : ""}`} key={selectedBook.id}>
         <section className={`clicked__container ${searchedClick ? "searched" : ""}`}>
+        <div className="clicked__header">
+        <img src={ArrowDown} alt="Back" className="clicked__back" onClick={()=>{
+          clickedBook(false)
+        }}/>
           <img src={Decal} alt="Book decal" className="clicked__decal-top" />
+          </div>
           <h1 className="clicked__title">{selectedBook.title}</h1>
           <h2 className="clicked__author">{selectedBook.author}</h2>
           <h2 className="clicked__series">{selectedBook.series}</h2>
@@ -97,7 +103,12 @@ export default function ClickedBook({
     return (
       <main className={`clicked__background ${searchedClick ? "searched" : ""}`} key={selectedBook.id}>
         <section className={`clicked__container ${searchedClick ? "searched" : ""}`}>
+          <div className="clicked__header">
+        <img src={ArrowDown} alt="Back" className="clicked__back" onClick={()=>{
+          clickedBook(false)
+        }}/>
           <img src={Decal} alt="Book decal" className="clicked__decal-top" />
+          </div>
           <h1 className="clicked__title">{selectedBook.title}</h1>
           <h2 className="clicked__series">
             {selectedBook.series}: Book {selectedBook.order}

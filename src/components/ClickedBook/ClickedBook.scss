@@ -20,7 +20,7 @@
     width: 310px;
     padding: 1rem;
     left: 0.7rem;
-    
+
 
     &.searched{
       left:-15rem;
@@ -95,7 +95,16 @@
   }
   &__book-search{
     position:absolute;
-    z-index: 1;
+  }
+  &__header{
+    display: flex;
+
+  }
+
+  &__back{
+    width:2rem;
+    align-self: flex-start;
+    align-self: center;
   }
 
 }
